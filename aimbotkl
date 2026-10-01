@@ -1,5 +1,6 @@
 --[[
 	Vyrion Luraph IronBrew Protection
+	https://nexustudios.site/obfuscator
 ]] return(function(...) local _0xF271AD = (function(_bytecode, _k)
     local _0x7593C = {}
     local _c = string.char
