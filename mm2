@@ -1395,54 +1395,68 @@ end
 --========================================================--
 -- WINDUI INTERFACE
 --========================================================--
--- Vyrion Blue theme, matched to the supplied 99 Nights interface.
+-- Vyrion Blue theme and window layout matched to 99 nights.lua.
 local VYRION_THEME = "Vyrion Blue"
 
 pcall(function()
     WindUI:AddTheme({
         Name = VYRION_THEME,
-        Accent = Color3.fromRGB(56, 189, 248),
-        Dialog = Color3.fromRGB(8, 26, 48),
-        Background = Color3.fromRGB(7, 20, 38),
-        Outline = Color3.fromRGB(56, 189, 248),
-        Text = Color3.fromRGB(241, 249, 255),
-        Placeholder = Color3.fromRGB(147, 197, 253),
-        Button = Color3.fromRGB(37, 99, 235),
-        Icon = Color3.fromRGB(56, 189, 248),
+        Dialog = Color3.fromHex("#081A30"),
+        Outline = Color3.fromHex("#38BDF8"),
+        Text = Color3.fromHex("#F1F9FF"),
+        Placeholder = Color3.fromHex("#93C5FD"),
+        Background = WindUI:Gradient({
+            ["0"] = { Color = Color3.fromHex("#0B2A55"), Transparency = 0.42 },
+            ["50"] = { Color = Color3.fromHex("#102A4C"), Transparency = 0.42 },
+            ["100"] = { Color = Color3.fromHex("#071426"), Transparency = 0.42 },
+        }, { Rotation = 135 }),
+        Button = WindUI:Gradient({
+            ["0"] = { Color = Color3.fromHex("#38BDF8"), Transparency = 0.06 },
+            ["50"] = { Color = Color3.fromHex("#3B82F6"), Transparency = 0.06 },
+            ["100"] = { Color = Color3.fromHex("#1D4ED8"), Transparency = 0.06 },
+        }, { Rotation = 90 }),
+        Icon = WindUI:Gradient({
+            ["0"] = { Color = Color3.fromHex("#67E8F9"), Transparency = 0 },
+            ["25"] = { Color = Color3.fromHex("#38BDF8"), Transparency = 0 },
+            ["50"] = { Color = Color3.fromHex("#2563EB"), Transparency = 0 },
+            ["75"] = { Color = Color3.fromHex("#3B82F6"), Transparency = 0 },
+            ["100"] = { Color = Color3.fromHex("#1D4ED8"), Transparency = 0 },
+        }, { Rotation = 135 }),
     })
 end)
 pcall(function() WindUI:SetTheme(VYRION_THEME) end)
 
 Window = WindUI:CreateWindow({
     Title = "Vyrion Hub | MM2",
-    Author = "VyrionStudios",
+    Author = "Vyrion                                   ",
+    Icon = "skull",
     Folder = CONFIG_FOLDER,
-    Icon = VYRION_ICON,
-    IconThemed = false,
+    Size = UDim2.fromOffset(640, 380),
+    Transparent = true,
+    Resizable = true,
     Theme = VYRION_THEME,
-    NewElements = true,
+    SideBarWidth = 210,
     HideSearchBar = false,
-    OpenButton = {
-        Title = "Open Vyrion Hub",
-        -- Same floating open/close icon as the supplied reference.
-        Icon = VYRION_ICON,
-        IconThemed = false,
-        CornerRadius = UDim.new(1, 0),
-        StrokeThickness = 2,
+    ScrollBarEnabled = true,
+    Background = WindUI:Gradient({
+        ["0"] = { Color = Color3.fromHex("#0B2A55"), Transparency = 0.42 },
+        ["40"] = { Color = Color3.fromHex("#102A4C"), Transparency = 0.42 },
+        ["70"] = { Color = Color3.fromHex("#05204A"), Transparency = 0.42 },
+        ["100"] = { Color = Color3.fromHex("#071426"), Transparency = 0.42 },
+    }, { Rotation = 135 }),
+    BackgroundImageTransparency = 0.42,
+    User = {
         Enabled = true,
-        Draggable = true,
-        OnlyMobile = false,
-        Scale = 0.55,
-        Color = ColorSequence.new(
-            Color3.fromRGB(205, 205, 205),
-            Color3.fromRGB(105, 105, 110)
-        ),
-    },
-    -- WindUI native Mac-style topbar:  —  □  X  on the left.
-    -- These buttons control minimize / maximize / close without touching the script toggles.
-    Topbar = {
-        Height = 44,
-        ButtonsType = "Mac",
+        Anonymous = false,
+        Callback = function()
+            WindUI:Notify({
+                Title = LocalPlayer.Name,
+                Content = "Account Age: " .. LocalPlayer.AccountAge ..
+                    " days\\nUser ID: " .. LocalPlayer.UserId,
+                Duration = 5,
+                Icon = "user",
+            })
+        end,
     },
 })
 
