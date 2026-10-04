@@ -1,0 +1,5031 @@
+function runAutoAccept()
+	local v1, v4 = pcall(function()
+		local v2 = game:GetService("ReplicatedStorage")
+		v2.Chest.Remotes.Functions.EtcFunction:InvokeServer(v2.Chest.Remotes.Functions.EtcFunction)
+	end)
+
+	if v1 then
+		warn("Failed to execute AutoAccept: ", v4)
+		do return false end
+	end
+
+	print("AutoAccept executed successfully.")
+	return true
+end
+
+runAutoAccept()
+wait(1)
+
+while true do
+	Client = game.Players.LocalPlayer
+	wait()
+
+	if not Client then
+	end
+
+	local v5 = game:GetService("TeleportService")
+	local v6 = game:GetService("Players")
+	Char = Client.Character
+	local v7 = game:GetService("VirtualUser")
+	vu = v7
+
+	if game.PlaceId ~= 4520749081 then
+		Sea1 = false
+
+		if game.PlaceId ~= 6381829480 then
+			Sea2 = false
+
+			if game.PlaceId ~= 15759515082 then
+				Sea3 = false
+				cheatKey = {}
+				myWeapon = { Melee = "", Sword = "", Fruit = "" }
+				addSkill = "?"
+				_G.Settings = v8
+
+				function SaveSettings()
+					local v9 = game:GetService("HttpService")
+					local v10 = v9:JSONEncode(_G.Settings)
+
+					if not writefile then
+						local v11 = isfolder(_u0)
+
+						if not v11 then
+							v11 = isfolder(_u0 .. "/King Legacy")
+
+							if not v11 then
+								writefile(_u0 .. "/King Legacy/" .. _u1, v10)
+							else
+								makefolder(_u0 .. "/King Legacy")
+								writefile(_u0 .. "/King Legacy/" .. _u1, v10)
+							else
+								makefolder(_u0)
+								makefolder(_u0 .. "/King Legacy")
+								writefile(_u0 .. "/King Legacy/" .. _u1, v10)
+							end
+
+						end
+
+					end
+				end
+
+				function LoadSettings()
+					local v12 = game:GetService("HttpService")
+					local v13 = isfile(_u0 .. "/King Legacy/" .. _u1)
+
+					if not v13 then
+						local v15 = v12:JSONDecode(v12)
+
+						if v15 then
+						end
+
+						local v13, v15, v14 = pairs(_G.Settings)
+
+						while true do
+							_G.Settings[v12:JSONDecode()] = _u0 .. "/King Legacy/" .. _u1
+
+							for v16, v17 in v13, v15, v14 do
+							end
+
+						end
+				end
+
+				LoadSettings()
+				Client.Idled:connect(function()
+					local v18 = vu:Button2Down(0)
+					vu:Button2Down(vu, v18, workspace.CurrentCamera.CFrame)
+					task.wait(1)
+					v18 = vu:Button2Up(0)
+					vu:Button2Up(vu, v18, workspace.CurrentCamera.CFrame)
+				end)
+				GUI = Client.PlayerGui
+				local v19 = game:GetService("ReplicatedStorage")
+				Repli = v19
+				v19 = game:GetService("ReplicatedStorage")
+				QuestManager = v19.Chest.Modules.QuestManager
+				task.spawn(function()
+					while true do
+						local v20 = task.wait()
+
+						if not v20 then
+							pcall(function()
+								if not NeedNoClip then
+
+									if not Client then
+										local v21 = Client:FindFirstChild("Character")
+
+										if not v21 then
+
+											if Client.Character.Humanoid.Sit == true then
+												Client.Character.Humanoid.Sit = false
+											end
+
+										end
+
+									end
+
+									local v21, v22, v23 = pairs(Char:GetDescendants())
+
+									while true do
+										local v25 = v24:IsA("BasePart")
+
+										if not v25 then
+											v24.CanCollide = false
+										end
+
+										for v26, v24 in v21, v22, v23 do
+										end
+
+										if not Char then
+											v21 = Char.UpperTorso:FindFirstChild("BodyClip")
+
+											if v21 then
+												v21 = Instance.new("BodyVelocity")
+												v21.Parent = Char.UpperTorso
+												v21.Name = "BodyClip"
+												v22 = Vector3.new(math.huge, math.huge, math.huge)
+												v23 = Vector3.new(0, 1, 0)
+												v21.Velocity = v23
+												v21.MaxForce = v22
+											else
+											else
+
+												if not Char then
+													v21 = Char.UpperTorso:FindFirstChild("BodyClip")
+
+													if not v21 then
+
+														if not Char then
+															v21 = Char.UpperTorso:FindFirstChild("BodyClip")
+
+															if not v21 then
+																v21 = Char.UpperTorso:FindFirstChild("BodyClip")
+																v22 = Vector3.new(math.huge, math.huge, math.huge)
+																v21.MaxForce = v22
+																v21 = Char.UpperTorso:FindFirstChild("BodyClip")
+																v22 = Vector3.new(0, 0, 0)
+																v21.Velocity = v22
+															else
+
+																if not Char then
+																	v21 = Char.UpperTorso:FindFirstChild("BodyClip")
+
+																	if not v21 then
+																		v21 = Char.UpperTorso:FindFirstChild("BodyClip")
+																		v21:Destroy()
+																	end
+
+																end
+
+															end
+
+														end
+
+													end
+
+												end
+
+											end
+
+										end
+
+									end
+							end)
+						end
+
+					end
+				end)
+
+				function getTool()
+					local v28, v27, v29 = pairs(Client.Character:GetChildren())
+
+					while true do
+						local v31 = v30:IsA("Tool")
+
+						if not v31 then
+
+							if v30.ToolTip == "Fruit Power" then
+								addSkill = "DF"
+							end
+
+							v31 = tostring(v30.Name)
+							_u0 = v31
+							_u1 = v30.ToolTip
+						end
+
+						for v32, v30 in v28, v27, v29 do
+						end
+
+						return _u0
+				end
+
+				function getPlayerMaterial(a)
+					local v36 = game:GetService("HttpService")
+					local v38, v37, v39 = pairs(v36:JSONDecode(Client.PlayerStats.Material.Value))
+
+					while true do
+
+						if Client.PlayerStats.Material.Value == a then
+							do return v40 end
+						end
+
+						for v41, v40 in v38, v37, v39 do
+						end
+
+						return 0
+				end
+
+				QuestMaterial = { ["3350"] = v42, ["3375"] = v42, ["3475"] = v42, ["3575"] = v42 }
+
+				function GetQuestData(a)
+					local v44, v43, v45 = pairs(require(game.ReplicatedStorage.Chest.Modules.QuestManager))
+
+					while true do
+
+						if v46.DailyQuest then
+
+							if v46.Level == 0 then
+							else
+							end
+
+							local v48 = tonumber(v46.Mob:match("Lv%. (%d+)"))
+							local v47 = v46.Mob:match("Lv")
+
+							if not v47 then
+
+								if a then
+
+									if v46.Level <= Client.PlayerStats.lvl.Value then
+									else
+
+										if v46.Level then
+										end
+
+										local v50 = function()
+											if 3300 <= _u0 then
+
+												if _u0 < 3375 then
+													do return "Azlan [Lv. 3300]" end
+												end
+
+											end
+
+											return _u1.Mob
+										end()
+										v50 = function()
+											if 3300 <= _u0 then
+
+												if _u0 < 3375 then
+													do return "Kill 4 Azlan" end
+												end
+
+											end
+
+											return _u1
+										end()
+										v50 = function()
+											local v51 = game:GetService("Workspace")
+											v51 = v51:FindFirstChild("AllNPC")
+											local v52, v51, v53 = pairs(v51:GetChildren())
+
+											while true do
+												local v55 = v54:GetAttribute("LevelMin")
+
+												if not v55 then
+													local v56 = v54:GetAttribute("LevelMin")
+
+													if v56 <= _u0.Level then
+														local v58 = v54:GetAttribute("LevelMin")
+													end
+
+												end
+
+												for v59, v54 in v52, v51, v53 do
+												end
+
+												table.sort(v57, function(a, b)
+													if b.Level >= a.Level then
+														return false
+												end)
+												return v57[1]
+										end()
+										table.insert(v49, {
+											LevelRequired = 1,
+											Mob = function()
+											if 3300 <= _u0 then
+
+												if _u0 < 3375 then
+													do return "Azlan [Lv. 3300]" end
+												end
+
+											end
+
+											return _u1.Mob
+										end,
+											QuestTitle = function()
+											if 3300 <= _u0 then
+
+												if _u0 < 3375 then
+													do return "Kill 4 Azlan" end
+												end
+
+											end
+
+											return _u1
+										end,
+											NPC = function()
+											local v51 = game:GetService("Workspace")
+											v51 = v51:FindFirstChild("AllNPC")
+											local v52, v51, v53 = pairs(v51:GetChildren())
+
+											while true do
+												local v55 = v54:GetAttribute("LevelMin")
+
+												if not v55 then
+													local v56 = v54:GetAttribute("LevelMin")
+
+													if v56 <= _u0.Level then
+														local v58 = v54:GetAttribute("LevelMin")
+													end
+
+												end
+
+												for v59, v54 in v52, v51, v53 do
+												end
+
+												table.sort(v57, function(a, b)
+													if b.Level >= a.Level then
+														return false
+												end)
+												return v57[1]
+										end,
+										})
+									end
+
+								end
+
+							end
+
+						end
+
+						for v60, v46 in v44, v43, v45 do
+						end
+
+						table.sort(v49, function(a, b)
+							if b.LevelRequired >= a.LevelRequired then
+								return false
+						end)
+
+						if MaxLevelOfSea <= Client.PlayerStats.lvl.Value then
+
+							if not Sea2 then
+								v49[1].Mob = "Ryu [Lv. 3975]"
+								v49[1].LevelRequired = 3950
+								v49[1].QuestTitle = "Kill 1 Ryu"
+							else
+							else
+
+								if MaxLevelOfSea <= Client.PlayerStats.lvl.Value then
+
+									if not Sea1 then
+										v49[1].Mob = "Seasoned Fishman [Lv. 2200]"
+										v49[1].LevelRequired = 2200
+										v49[1].QuestTitle = "Kill 1 Seasoned Fishman"
+									end
+
+								end
+
+							end
+
+						end
+
+						local v44, v43, v45 = pairs(QuestMaterial)
+
+						while true do
+							v48 = tonumber(v60)
+
+							if v49[1].LevelRequired == v48 then
+								local v48, v47, v61 = pairs(workspace.Monster.Mon:GetChildren())
+
+								while true do
+
+									if v50.Name == v49[1].Mob then
+										local v62 = v50:FindFirstChild("Humanoid")
+
+										if not v62 then
+											v62 = v50:FindFirstChild("HumanoidRootPart")
+
+											if not v62 then
+
+												if 0 < v50.Humanoid.Health then
+												end
+
+											end
+
+										end
+
+									end
+
+									for v63, v50 in v48, v47, v61 do
+									end
+
+									local v48, v47, v61 = pairs(workspace.Monster.Boss:GetChildren())
+
+									while true do
+
+										if v50.Name == v49[1].Mob then
+											v62 = v50:FindFirstChild("Humanoid")
+
+											if not v62 then
+												v62 = v50:FindFirstChild("HumanoidRootPart")
+
+												if not v62 then
+
+													if 0 < v50.Humanoid.Health then
+													end
+
+												end
+
+											end
+
+										end
+
+										for v63, v50 in v48, v47, v61 do
+										end
+
+										v47 = game:GetService("ReplicatedStorage")
+										local v48, v47, v61 = pairs(v47.MOB:GetChildren())
+
+										while true do
+
+											if v50.Name == v49[1].Mob then
+												v62 = v50:FindFirstChild("Humanoid")
+
+												if not v62 then
+													v62 = v50:FindFirstChild("HumanoidRootPart")
+
+													if not v62 then
+
+														if 0 < v50.Humanoid.Health then
+														end
+
+													end
+
+												end
+
+											end
+
+											for v63, v50 in v48, v47, v61 do
+											end
+
+											v48 = getPlayerMaterial(v46.Material)
+
+											if v48 <= 0 then
+
+												if true then
+													v49[1].Mob = v46.Kills
+													v49[1].LevelRequired = v46.Level
+													v49[1].QuestTitle = v46.QuestTitle
+												else
+												else
+													v48 = getPlayerMaterial(v46.Material)
+
+													if 0 < v48 then
+
+														if true then
+															v47 = game:GetService("ReplicatedStorage")
+															v47 = v47:WaitForChild("Chest")
+															v47 = v47:WaitForChild("Remotes")
+															v47 = v47:WaitForChild("Functions")
+															v47 = v47:WaitForChild("EtcFunction")
+															v47:InvokeServer(v47)
+														end
+
+													end
+
+												end
+
+											end
+
+										end
+
+										for v60, v46 in v44, v43, v45 do
+										end
+
+										return v49[1]
+				end
+
+				local v42 = game:GetService("Workspace")
+				v42 = v42:FindFirstChild("AllNPC")
+				local v64, v42, v65 = pairs(v42:GetChildren())
+
+				while true do
+					local v67 = v66:GetAttribute("LevelMax")
+
+					if not v67 then
+						v67 = v66:GetAttribute("LevelMax")
+						lvmax = v67
+
+						if not MaxLevelOfSea then
+
+							if MaxLevelOfSea < lvmax then
+							else
+								MaxLevelOfSea = lvmax
+							end
+
+						end
+
+					end
+
+					v67 = v66:GetAttribute("LevelMin")
+
+					if not v67 then
+						v67 = v66:GetAttribute("LevelMin")
+						lvmin = v67
+
+						if not MinLevelOfSea then
+
+							if lvmin < MinLevelOfSea then
+							else
+								MinLevelOfSea = lvmax
+							end
+
+						end
+
+					end
+
+					for v68, v66 in v64, v42, v65 do
+					end
+
+					function tp(a)
+						pcall(function()
+							if not Client then
+							end
+
+							local v69 = Client.Character:FindFirstChild("Humanoid")
+
+							if not v69 then
+
+								if Client.Character.Humanoid.Sit == true then
+									Client.Character.Humanoid.Sit = false
+								end
+
+							end
+
+							NeedNoClip = true
+
+							if _u0.Target then
+								local v70 = print("mae mung tai.")
+							end
+
+							if _u0.Mod then
+								v70 = CFrame.new(0, 0, 0)
+							end
+
+							v70 = Client.Character:FindFirstChild("HumanoidRootPart")
+							v70.CFrame = v69.Target * v69.Mod
+						end)
+					end
+
+					function Tp(a)
+						if Client.Character.Humanoid.Sit == true then
+							Client.Character.Humanoid.Sit = false
+						end
+
+						local v72, v71, v73 = pairs(Client.Character:GetDescendants())
+
+						while true do
+							local v75 = v74:IsA("BasePart")
+
+							if not v75 then
+								v74.CanCollide = false
+							end
+
+							for v76, v74 in v72, v71, v73 do
+							end
+
+							v72 = Client.Character.HumanoidRootPart:FindFirstChild("BodyClip")
+
+							if v72 then
+								v72 = Instance.new("BodyVelocity")
+								v72.Parent = Client.Character.HumanoidRootPart
+								v72.Name = "BodyClip"
+								v71 = Vector3.new(5, math.huge, 5)
+								v73 = Vector3.new(0, 0, 0)
+								v72.Velocity = v73
+								v72.MaxForce = v71
+							end
+
+							Client.Character.HumanoidRootPart.CFrame = a
+					end
+
+					function tp1(a)
+						if not game.Players.LocalPlayer then
+
+							if not game.Players.LocalPlayer.Character then
+								local v77 = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+
+								if v77 then
+								else
+								else
+									warn("Player's character or HumanoidRootPart not found!")
+									do return end
+								end
+
+							end
+
+						end
+
+						v77 = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+						v77.CFrame = a
+					end
+
+					function EquipTools(a)
+						local v78 = Client.Backpack:FindFirstChild(a)
+
+						if not v78 then
+							v78 = Client.Backpack:FindFirstChild(a)
+							Client.Character.Humanoid:EquipTool(v78)
+						end
+					end
+
+					function UnEquipTools(a)
+						local v79 = Client.Character:FindFirstChild(a)
+
+						if not v79 then
+							wait(0.5)
+							v79 = Client.Character:FindFirstChild(a)
+							v79.Parent = Client.LocalPlayer.Backpack
+							wait(0.1)
+						end
+					end
+
+					function Attack()
+						if _G.Settings.Select_Weapon == "Melee" then
+							addSkill = "FS"
+							local v80 = game:GetService("ReplicatedStorage")
+							v80.Chest.Remotes.Functions.SkillAction:InvokeServer("FS_" .. _G.Weapon .. "_M1")
+						else
+
+							if _G.Settings.Select_Weapon == "Sword" then
+								addSkill = "SW"
+								v80 = game:GetService("ReplicatedStorage")
+								v80.Chest.Remotes.Functions.SkillAction:InvokeServer("SW_" .. _G.Weapon .. "_M1")
+							else
+
+								if _G.Settings.Select_Weapon == "all In One" then
+
+									if _u0[_u1] == "Sword" then
+										addSkill = "SW"
+										delay(0.1, function()
+											local v81 = game:GetService("ReplicatedStorage")
+											v81.Chest.Remotes.Functions.SkillAction:InvokeServer("SW_" .. myWeapon.Sword .. "_M1")
+										end)
+									else
+
+										if _u0[_u1] == "Melee" then
+											addSkill = "FS"
+											local v82 = game:GetService("ReplicatedStorage")
+											v82.Chest.Remotes.Functions.SkillAction:InvokeServer("FS_" .. myWeapon.Melee .. "_M1")
+										else
+
+											if _u0[_u1] == "Fruit Power" then
+												addSkill = "FP"
+												v82 = game:GetService("ReplicatedStorage")
+												v82.Chest.Remotes.Functions.SkillAction:InvokeServer("FP_" .. myWeapon["Fruit Power"] .. "_M1")
+											end
+
+										end
+
+									end
+
+									EquipTools(myWeapon[_u0[_u1]])
+									_u1 = _u1 + 1
+
+									if #_u0 < _u1 then
+										_u1 = 1
+									else
+										v80 = game:GetService("ReplicatedStorage")
+										v80.Chest.Remotes.Functions.SkillAction:InvokeServer("FS_" .. _G.Weapon .. "_M1")
+									end
+
+								end
+
+							end
+
+						end
+
+						if _G.Settings.Select_Weapon ~= "all In One" then
+							EquipTools(_G.Weapon)
+						end
+					end
+
+					local function v68()
+						if not _G.Settings.Select_Skill then
+							local v83, v84, v85 = ipairs({ key = "X", enabled = _G.Settings.SkillX, holdTime = _u0.X })
+
+							while true do
+
+								if not v87.enabled then
+									local v88 = _u1.CheckOnCooldown(v87.key)
+
+									if v88 then
+										v88 = game:GetService("VirtualInputManager")
+										v88:SendKeyEvent(true, v87.key, false, game)
+										wait(v87.holdTime)
+										v88:SendKeyEvent(false, v87.key, false, game)
+									end
+
+								end
+
+								for v86, v87 in v83, v84, v85 do
+								end
+
+							end
+					end
+
+					local function v66(a)
+						if not a then
+							local v90 = game:GetService("GuiService")
+							v90.SelectedObject = a
+							task.wait(0.1)
+							v90 = game:GetService("VirtualInputManager")
+							v90:SendKeyEvent(true, Enum.KeyCode.Return, false, game)
+							task.wait(0.1)
+							v90 = game:GetService("VirtualInputManager")
+							v90:SendKeyEvent(false, Enum.KeyCode.Return, false, game)
+							task.wait(0.1)
+							v90 = game:GetService("GuiService")
+							v90.SelectedObject = nil
+						else
+							warn("Invalid UI path provided to ClickUI")
+						end
+					end
+
+					function click(a)
+						if a then
+						end
+
+						for v91 = 1, 3 do
+							local v92 = game:GetService("VirtualUser")
+							v92:Button1Down(v92)
+							v92 = game:GetService("VirtualUser")
+							v92:Button1Up(v92)
+						end
+					end
+
+					function Click(a)
+						if a then
+						end
+
+						for v94 = 1, 3 do
+							local v95 = game:GetService("VirtualUser")
+							v95:Button1Down(v95)
+							v95 = game:GetService("VirtualUser")
+							v95:Button1Up(v95)
+						end
+					end
+
+					function toQuest(a, b, c)
+						if c then
+						end
+
+						if b then
+						end
+
+						if a then
+
+							if not Sea1 then
+							else
+
+								if not Sea3 then
+								end
+
+							end
+
+						end
+
+						if b == 1 then
+
+							if not Sea2 then
+							else
+							else
+
+								if b == 3 then
+
+									if not Sea2 then
+									end
+
+								end
+
+							end
+
+						end
+
+						local v97 = workspace.AllNPC:FindFirstChild("The Squid")
+
+						if not v97 then
+						end
+
+						if not true then
+
+							if not v97.CFrame then
+								local v98 = Client.Character:FindFirstChild("HumanoidRootPart")
+
+								if not v98 then
+									local v99 = CFrame.new(0, 0, -3)
+									v98.CFrame = v97.CFrame * v99
+								end
+
+							end
+
+						end
+
+						if not game.Players.LocalPlayer.Character.HumanoidRootPart then
+							game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+							wait(0.1)
+							game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+						end
+
+						vu:Button1Down(vu)
+						vu:Button1Up(vu)
+						wait(0.5)
+						local v99, v100, v101 = pairs(Client.PlayerGui:GetChildren())
+
+						while true do
+							local v102 = string.find(1.Name, "QuestLvl")
+
+							if not v102 then
+								v102 = 1:FindFirstChild("Dialogue")
+
+								if not v102 then
+									local v103 = v102:FindFirstChild("Accept")
+
+									if not v103 then
+
+										if game.PlaceId ~= 4520749081 then
+
+											if game.PlaceId ~= 6381829480 then
+
+												if not true then
+												else
+												else
+													local v104 = UDim2.new(1001, 0, 1001, 0)
+													v102.Accept.Size = v104
+													v102.Accept.Text.TextTransparency = 1
+													v104 = UDim2.new(0.5, 0, 0.5, 0)
+													v102.Accept.Position = v104
+													v104 = Vector2.new(0.5, 0.5)
+													v102.Accept.AnchorPoint = v104
+												end
+
+											end
+
+										else
+											local v104, v105, v106 = pairs(v102:GetChildren())
+
+											while true do
+												local v107 = string.find(0.Name, "Quest")
+
+												if v107 then
+
+													if 0.Name == "QuestAccept" then
+													else
+														v107 = UDim2.new(1001, 0, 1001, 0)
+														0.Size = v107
+														0.Text.TextTransparency = 1
+														v107 = UDim2.new(0.5, 0, 0.5, 0)
+														0.Position = v107
+														v107 = Vector2.new(0.5, 0.5)
+														0.AnchorPoint = v107
+													end
+
+												end
+
+												for v108, v109 in v104, v105, v106 do
+												end
+
+												v104 = string.find(1.Text.Text, "Talk")
+
+												if not v104 then
+													v104 = v102:FindFirstChild("QuestAccept")
+
+													if not v104 then
+														v105 = UDim2.new(1001, 0, 1001, 0)
+														v104.Size = v105
+														v104.Text.TextTransparency = 1
+														v105 = UDim2.new(0.5, 0, 0.5, 0)
+														v104.Position = v105
+														v105 = Vector2.new(0.5, 0.5)
+														v104.AnchorPoint = v105
+													end
+
+												end
+
+											end
+
+											if not v102.Accept then
+												v102.Accept:Click()
+											end
+
+										end
+
+									end
+
+								end
+
+								for v110, v111 in v99, v100, v101 do
+								end
+					end
+
+					function HopServer(a)
+						if a then
+						end
+
+						local v112 = game:GetService("HttpService")
+
+						local function v113(a)
+							if not a then
+
+								if "&cursor=" .. a then
+								else
+								end
+
+							end
+
+							local v114 = game:HttpGet(_u0 .. "")
+							return _u1:JSONDecode(_u1, v114)
+							return _u1:JSONDecode
+						end
+
+						while true do
+							local v115 = game.PlaceId(nil)
+
+							if not v115.data[1] then
+							end
+
+							while true do
+
+								if false then
+									v115 = game:GetService("TeleportService")
+									v115:TeleportToPlaceInstance(game.PlaceId, v115.data[1].id, Client)
+								else
+
+									if not request then
+										local v116 = string.format("https://games.roblox.com/v1/games/%d/servers/Public?sortOrder=Desc&limit=100&excludeFullGames=true", game.PlaceId)
+										local v117 = request({ Url = v116 })
+										local v118 = game:GetService("HttpService")
+										v118 = v118:JSONDecode(v117.Body)
+
+										if not v118 then
+
+											if not v118.data then
+
+												while true do
+													local v120 = type(v119)
+
+													if v120 == "table" then
+														v120 = tonumber(v119.playing)
+
+														if not v120 then
+															v120 = tonumber(v119.maxPlayers)
+
+															if not v120 then
+
+																if v119.playing < v119.maxPlayers then
+
+																	if v119.id ~= game.JobId then
+																		table.insert(v115, 1, v119.id)
+																	end
+
+																end
+
+															end
+
+														end
+
+													end
+
+													for v121, v119 in next, v118.data, nil do
+													end
+
+												end
+
+											end
+
+											if 0 < #v115 then
+												v116 = game:GetService("TeleportService")
+												v121 = v116:TeleportToPlaceInstance(#v115)
+												v116:TeleportToPlaceInstance(v116, game.PlaceId, v115[v121], Client)
+											else
+												do return "Couldn't find a server." end
+											end
+
+										end
+
+									end
+
+									wait()
+
+									if game.PlaceId ~= game.PlaceId then
+									end
+					end
+
+					function dist(a, b, c)
+						if not Client then
+						end
+
+						if b then
+						end
+
+						if c then
+						else
+						end
+
+						local v122 = Vector3.new(a.X, false, a.Z)
+
+						if c then
+						else
+						end
+
+						local v123 = Vector3.new(Client.Character.HumanoidRootPart.Position.X, false, Client.Character.HumanoidRootPart.Position.Z)
+						return (v122 - v123).magnitude
+					end
+
+					function seaChest()
+						wait(3)
+
+						local function v124()
+							local v126, v127, v128 = ipairs(v125)
+
+							while true do
+								local v129 = game:GetService("Workspace")
+								v129 = v129.Island:FindFirstChild(v130)
+
+								if not v129 then
+									do return v129 end
+								end
+
+								for v131, v130 in v126, v127, v128 do
+								end
+
+								return nil
+						end
+
+						local function v132()
+							local v133 = workspace:FindFirstChild("Island")
+							local v134, v133, v135 = pairs(v133:GetChildren())
+
+							while true do
+								local v137 = v136.Name:match("Sea King")
+
+								if not v137 then
+									do return true end
+								end
+
+								for v138, v136 in v134, v133, v135 do
+								end
+
+								return false
+						end
+
+						local function v139()
+							local v141, v140, v142 = pairs(game.Workspace:GetChildren())
+
+							while true do
+								local v144 = v143.Name:match("Chest")
+
+								if not v144 then
+									do return true end
+								end
+
+								for v145, v143 in v141, v140, v142 do
+								end
+
+								return false
+						end
+
+						local function v146()
+							if _G.Settings.Monter_Hop then
+
+								if not _G.Settings.Auto_Sea31 then
+								else
+									task.wait(3.5)
+									HopServer(false)
+								end
+
+							end
+						end
+
+						local v147 = workspace.SeaMonster:FindFirstChild("SeaKing")
+
+						if v147 then
+							v147 = game:GetService("Workspace")
+							v147 = v147.SeaMonster:FindFirstChild("HydraSeaKing")
+
+							if v147 then
+								v147 = wait()
+
+								if v147 then
+									v147 = 3()
+
+									if not v147 then
+									else
+										local v148, v149, v150 = ipairs(v147)
+
+										while true do
+											local v151 = game:GetService("Workspace")
+											v151 = v151.Island:FindFirstChild(v152)
+
+											if not v151 then
+												tp({ Target = v151.ChestSpawner.CFrame })
+												Client.PlayerStats.beli.Value = Client.PlayerStats.beli.Value + 50
+												wait(3)
+												local v153 = dist(v151.ChestSpawner.Position, Client.Character.HumanoidRootPart.Position)
+
+												if v153 < 10 then
+
+													if _u0 + 1 < Client.PlayerStats.beli.Value then
+														print(_u0, " : ", Client.PlayerStats.beli.Value)
+														v146()
+													end
+
+												end
+
+											end
+
+											for v154, v152 in v148, v149, v150 do
+											end
+
+											v149 = workspace:FindFirstChild("Island")
+											local v148, v149, v150 = pairs(v149:GetChildren())
+
+											while true do
+												v151 = v152.Name:match("Sea King")
+
+												if not v151 then
+													tp({ Target = v152.HydraStand.CFrame })
+												end
+
+												for v154, v152 in v148, v149, v150 do
+												end
+
+											end
+
+										end
+
+									end
+
+								end
+					end
+
+					local function v155(...)
+						local v157 = type(v156[1])
+
+						if v157 == "vector" then
+						else
+							v157 = type(v156[1])
+
+							if v157 == "userdata" then
+							else
+								v157 = type(v156[1])
+
+								if v157 == "number" then
+									v157 = CFrame.new(table.unpack(v156))
+								end
+
+							end
+
+						end
+
+						local v160, v159, v161 = pairs(workspace.Island:GetChildren())
+
+						while true do
+							local v163 = v162:IsA("Model")
+
+							if not v163 then
+								v163 = v162:GetModelCFrame()
+
+								if (v157.p - v163.p).Magnitude < math.huge then
+								end
+
+							end
+
+							for v164, v162 in v160, v159, v161 do
+							end
+
+							if not v162.Name then
+								do return v162.Name end
+							end
+					end
+
+					local function v165(a)
+						local v167, v166, v168 = pairs(workspace.AllNPC:GetChildren())
+
+						while true do
+							local v170 = _u0(v169.CFrame)
+							local v171 = _u0(a)
+
+							if v170 == v171 then
+
+								if _u1[v170] then
+									_u1[v170] = v172
+								end
+
+								table.insert({}, v169.CFrame)
+							end
+
+							for v173, v169 in v167, v166, v168 do
+							end
+					end
+
+					function adjustPosition(a, b)
+						if _G.Disfarm then
+						end
+
+						local v174 = CFrame.new(0, 7.5, 0)
+						v174 = CFrame.new(7.5, 0, 0)
+						v174 = CFrame.new(0, -7.5, 0)
+
+						if v175[b] then
+							v174 = CFrame.new()
+						end
+
+						return a * v174
+					end
+
+					function getTargetPosition(a, b)
+						local v176 = a:FindFirstChild("HumanoidRootPart")
+
+						if v176 then
+							do return nil end
+						end
+
+						if _G.Disfarm then
+						end
+
+						local v177 = Vector3.new(0, 7.5, 0)
+
+						if _G.Disfarm then
+						end
+
+						v177 = Vector3.new(7.5, 0, 0)
+
+						if _G.Disfarm then
+						end
+
+						v177 = Vector3.new(0, -7.5, 0)
+
+						if v178[b] then
+							v177 = Vector3.new()
+						end
+
+						if b ~= "Beside" then
+
+							if b == "Lower" then
+							else
+								return CFrame.new(v176.Position + v177, v176.Position)
+								do return CFrame.new end
+							end
+
+						end
+
+						return CFrame.new(v176.Position + v177)
+						return CFrame.new
+					end
+
+					function loadIslandForAllNPCs(a, b)
+						if not _G.Settings.Auto_Farm_Level1 then
+							local v254 = _u1.find({ b })
+
+							if not v254 then
+							else
+								do return "Entity Spawn" end
+							end
+
+						end
+
+						if not _u0[a] then
+
+							if 0 < #_u0[a] then
+								local v254, v255, v256 = pairs(_u0[a])
+
+								while true do
+
+									if not _G.Settings.Auto_Farm_Level1 then
+										local v257 = _u1.find({ b })
+
+										if not v257 then
+											break
+										else
+											local v258 = math.random(5, 10)
+											local v259 = CFrame.new(0, 50, -v258)
+											Client.Character.HumanoidRootPart.CFrame = v260 * v259
+											wait(0.5)
+
+											for v261, v260 in v254, v255, v256 do
+											end
+
+										end
+
+									end
+
+									do return "Loaded all NPC positions on island: " .. a end
+								end
+
+							end
+
+							return "No NPCs found on island: " .. a
+					end
+
+					local function v262(a, b)
+						if a.LevelRequired == 3750 then
+							local v263 = CFrame.new(0, 20, 0)
+							tp({ Target = (((((workspace.Island["H - Fiore"]).Lab).Lab).Base).CFrame) * v263 })
+						else
+
+							if a.LevelRequired == 3775 then
+								local v264 = (((((workspace.Island["H - Fiore"]).Italian).Base).Mountain).Model):GetChildren()
+								v263 = CFrame.new(0, 20, 0)
+								tp({ Target = v264[9].CFrame * v263 })
+							else
+
+								if a.LevelRequired == 4750 then
+									v264 = (((workspace.Island["Forgotten Coliseum"]).Vacuus).Base):GetChildren()
+									v263 = CFrame.new(0, 20, 0)
+									tp({ Target = v264[179].CFrame * v263 })
+								else
+									_u0(b)
+									local v265 = _u1(b)
+									loadIslandForAllNPCs(v265, a.Mob)
+								end
+
+							end
+
+						end
+					end
+
+					local v266 = GetQuestData()
+
+					local function v391(a)
+						if _u0[a] then
+						end
+
+						return a
+					end
+
+					local function v401(a)
+						if _u0[a] then
+						end
+
+						return a
+					end
+
+					function MaterialMon()
+						if SelectMaterial == "Rusted Scrap" then
+
+							if not Sea1 then
+								MMon = "Elite Soldier [Lv. 1000]"
+							else
+
+								if not Sea2 then
+									MMon = "Beast Swordman [Lv. 2300]"
+								else
+
+									if SelectMaterial == "Iron Ingot" then
+										MMon = "Beast Pirate [Lv. 2250]"
+									else
+
+										if SelectMaterial == "Leather" then
+
+											if not Sea1 then
+												MMon = "Commander [Lv. 100]"
+											else
+
+												if not Sea2 then
+													MMon = "Duke [Lv. 2550]"
+												else
+
+													if SelectMaterial == "Angellic's Feather" then
+														MMon = "Sky Soldier [Lv. 800]"
+													else
+
+														if SelectMaterial == "Carrot" then
+															MMon = "Beast Swordman [Lv. 2300]"
+														else
+
+															if SelectMaterial == "Gun Powder" then
+
+																if not Sea1 then
+																	MMon = "Ball Man [Lv. 850]"
+																else
+
+																	if not Sea2 then
+																		MMon = "Lomeo [Lv. 3675]"
+																	else
+
+																		if SelectMaterial == "Fresh Fish" then
+																			MMon = "Karate Fishman [Lv. 200]"
+																		else
+
+																			if SelectMaterial == "Undead Ooze" then
+
+																				if not Sea1 then
+																					MMon = "Zombie [Lv. 1500]"
+																				else
+
+																					if not Sea2 then
+																						MMon = "Sally [Lv. 3450]"
+																					else
+
+																						if SelectMaterial == "Shark Canine" then
+																							MMon = "Seasoned Fishman [Lv. 2200]"
+																						else
+
+																							if SelectMaterial == "Bread Crumps" then
+																								MMon = "Chess Soldier [Lv. 3200]"
+																							else
+
+																								if SelectMaterial == "Pile of Bones" then
+																									MMon = "Skull Pirate [Lv. 3050]"
+																								else
+
+																									if SelectMaterial == "Thief's Rag" then
+																										MMon = "Desert Thief [Lv. 3125]"
+																									else
+
+																										if SelectMaterial == "Dragon Orb" then
+																											MMon = "Elite Skeleton [Lv. 3100]"
+																										else
+
+																											if SelectMaterial == "Lucidu's Totem" then
+																												MMon = "Vice Admiral [Lv. 3500]"
+																											else
+
+																												if SelectMaterial == "Dark Beard Totem" then
+																													MMon = "Dark Beard Servant [Lv. 3400]"
+																												else
+
+																													if SelectMaterial == "Magma Crystal" then
+																														MMon = "The Volcano [Lv. 3325]"
+																													else
+
+																														if SelectMaterial == "Ice Crystals" then
+																															MMon = "Azlan [Lv. 3300]"
+																														else
+
+																															if SelectMaterial == "Samurai Bandage" then
+																																MMon = "Kitsune Samurai [Lv. 2650]"
+																															else
+
+																																if SelectMaterial == "Lost Ruby" then
+																																	MMon = "Anubis [Lv. 3150]"
+																																else
+
+																																	if SelectMaterial == "Essence of Fire" then
+																																		MMon = "Flame User [Lv. 3200]"
+																																	else
+
+																																		if SelectMaterial == "Twilight Orb" then
+																																			MMon = "Shadow Master [Lv. 1600]"
+																																		else
+
+																																			if SelectMaterial == "Vital Fluid" then
+																																				MMon = "Shadow Master [Lv. 1650]"
+																																			else
+
+																																				if SelectMaterial == "Coral and Pearl" then
+																																					MMon = "Fugitive [Lv. 4050]"
+																																				else
+
+																																					if SelectMaterial == "Shark Fin" then
+																																						MMon = "Fishman Guardian [Lv. 4150]"
+																																					else
+
+																																						if SelectMaterial == "Diverse Sphere" then
+																																							MMon = "Gazelle Man [Lv. 2350]"
+																																						end
+
+																																					end
+
+																																				end
+
+																																			end
+
+																																		end
+
+																																	end
+
+																																end
+
+																															end
+
+																														end
+
+																													end
+
+																												end
+
+																											end
+
+																										end
+
+																									end
+
+																								end
+
+																							end
+
+																						end
+
+																					end
+
+																				end
+
+																			end
+
+																		end
+
+																	end
+
+																end
+
+															end
+
+														end
+
+													end
+
+												end
+
+											end
+
+										end
+
+									end
+
+								end
+
+							end
+
+						end
+					end
+
+					if not Sea1 then
+						MonsterList = {
+							"Soldier [Lv. 1]",
+							"Clown Pirate [Lv. 10]",
+							"Smoky [Lv. 20]",
+							"Tashi [Lv. 30]",
+							"Clown Swordman [Lv. 50]",
+							"The Clown [Lv. 75]",
+							"Commander [Lv. 100]",
+							"Captain [Lv. 120]",
+							"The Barbaric [Lv. 145]",
+							"Fighter Fishman [Lv. 180]",
+							"Karate Fishman [Lv. 200]",
+							"Shark Man [Lv. 230]",
+							"Trainer Chef [Lv. 250]",
+							"Dark Leg [Lv. 300]",
+							"Dory [Lv. 350]",
+							"Snow Soldier [Lv. 400]",
+							"King Snow [Lv. 450]",
+							"Little Dear [Lv. 500]",
+							"Candle Man [Lv. 525]",
+							"Bomb Man [Lv. 625]",
+							"King of Sand [Lv. 725]",
+							"Sky Soldier [Lv. 800]",
+							"Ball Man [Lv. 850]",
+							"Rumble Man [Lv. 900]",
+							"Elite Soldier [Lv. 1000]",
+							"Leader [Lv. 1100]",
+							"Pasta [Lv. 1150]",
+							"Wolf [Lv. 1250]",
+							"Giraffe [Lv. 1325]",
+							"Leo [Lv. 1400]",
+							"Zombie [Lv. 1500]",
+							"Shadow Master [Lv. 1600]",
+							"New World Pirate [Lv. 1700]",
+							"Rear Admiral [Lv. 1800]",
+							"True Karate Fishman [Lv. 1850]",
+							"Quake Woman [Lv. 1925]",
+							"Fishman [Lv. 2000]",
+							"Combat Fishman [Lv. 2050]",
+							"Sword Fishman [Lv. 2100]",
+							"Soldier Fishman [Lv. 2150]",
+							"Seasoned Fishman [Lv. 2200]",
+						}
+					else
+
+						if not Sea2 then
+							MonsterList = {
+								"Beast Pirate [Lv. 2250]",
+								"Beast Swordman [Lv. 2300]",
+								"Gazelle Man [Lv. 2350]",
+								"Bandit Beast Pirate [Lv. 2400]",
+								"Powerful Beast Pirate [Lv. 2450]",
+								"Violet Samurai [Lv. 2500]",
+								"Duke [Lv. 2550]",
+								"Magician [Lv. 2600]",
+								"Kitsune Samurai [Lv. 2650]",
+								"Elite Beast Pirate [Lv. 2700]",
+								"Bear Man [Lv. 2750]",
+								"Bean [Lv. 2800]",
+								"Meji [Lv. 2850]",
+								"Pachy Woman [Lv. 2950]",
+								"Kappa [Lv. 2950]",
+								"Joey [Lv. 3000]",
+								"Skull Pirate [Lv. 3050]",
+								"Elite Skeleton [Lv. 3100]",
+								"Desert Thief [Lv. 3125]",
+								"Anubis [Lv. 3150]",
+								"Pharaoh [Lv. 3175]",
+								"Flame User [Lv. 3200]",
+								"Chess Soldier [Lv. 3200]",
+								"Sunken Vessel [Lv. 3225]",
+								"Biscuit Man [Lv. 3250]",
+								"Azlan [Lv. 3300]",
+								"The Volcano [Lv. 3325]",
+								"Dark Beard Servant [Lv. 3400]",
+								"Supreme Swordman [Lv. 3425]",
+								"Sally [Lv. 3450]",
+								"Vice Admiral [Lv. 3500]",
+								"Pondere [Lv. 3525]",
+								"Hefty [Lv. 3550]",
+								"Lucidus [Lv. 3575]",
+								"Fiore Gladiator [Lv. 3600]",
+								"Fiore Fighter [Lv. 3625]",
+								"Fiore Pirate [Lv. 3650]",
+								"Lomeo [Lv. 3675]",
+								"Prince Aria [Lv. 3700]",
+								"Devastate [Lv. 3725]",
+								"Physicus [Lv. 3750]",
+								"Floffy [Lv. 3775]",
+								"Dead Troupe [Lv. 3800]",
+								"Dead Troupe Captain [Lv. 3850]",
+								"Ryu [Lv. 3975]",
+							}
+						else
+
+							if not Sea3 then
+								MonsterList = { "Fugitive [Lv. 4050]", "Fishman Guardian [Lv. 4150]" }
+							end
+
+						end
+
+					end
+
+					if not Sea1 then
+					else
+
+						if not Sea2 then
+						else
+
+							if not Sea3 then
+							end
+
+						end
+
+					end
+
+					if not Sea1 then
+					else
+
+						if not Sea2 then
+						else
+
+							if not Sea3 then
+							end
+
+						end
+
+					end
+
+					local v419 = game:GetService("Workspace")
+					local v420, v419, v421 = pairs(v419["Areas"]:GetChildren())
+
+					while true do
+
+						if "Ocean Gladiator [Lv. 4500]".Name ~= "Sea of dust" then
+							table["insert"](v422, "Ocean Gladiator [Lv. 4500]".Name)
+						end
+
+						for v423, v424 in v420, v419, v421 do
+						end
+
+						function getSpawn()
+							task.spawn(function()
+								while true do
+									local v427 = task.wait(1)
+
+									if not v427 then
+										local v427, v436 = pcall(function()
+											if _G.Settings.Select_Weapon ~= "Melee" then
+
+												if _G.Settings.Select_Weapon ~= "Sword" then
+
+													if _G.Settings.Select_Weapon == "Fruit Power" then
+													else
+													else
+
+														if _G.Settings.Select_Weapon == "Melee" then
+
+															if "Combat" then
+															else
+
+																if _G.Settings.Select_Weapon == "Sword" then
+
+																	if "Sword" then
+																	else
+																	end
+
+																end
+
+															end
+
+														end
+
+														local v429, v428, v430 = pairs(game.Players.LocalPlayer.Backpack:GetChildren())
+
+														while true do
+
+															if v431.ClassName == "Tool" then
+
+																if v431.ToolTip == "Fruit Power" then
+																	local v432 = tostring(v431.Name)
+																	_G.Weapon = v432
+																end
+
+															end
+
+															for v433, v431 in v429, v428, v430 do
+															end
+
+														end
+
+													end
+
+												else
+
+													if _G.Settings.Select_Weapon == "all In One" then
+														local v434, v429, v428 = pairs(game.Players.LocalPlayer.Backpack:GetChildren())
+
+														while true do
+
+															if v433.ClassName == "Tool" then
+
+																if v433.ToolTip == "Sword" then
+																	local v435 = tostring(v433.Name)
+																	myWeapon.Sword = v435
+																else
+
+																	if v433.ToolTip == "Combat" then
+																		v435 = tostring(v433.Name)
+																		myWeapon.Melee = v435
+																	else
+
+																		if v433.ToolTip == "Fruit Power" then
+																			v435 = tostring(v433.Name)
+																			myWeapon["Fruit Power"] = v435
+																		end
+
+																	end
+
+																end
+
+															end
+
+															for v430, v433 in v434, v429, v428 do
+															end
+
+														else
+															_G.Settings.Select_Weapon = "Melee"
+														end
+
+													end
+
+													local v434, v429, v428 = pairs(game.Players.LocalPlayer.Backpack:GetChildren())
+
+													while true do
+
+														if v433.ClassName == "Tool" then
+
+															if v433.ToolTip == "Fruit Power" then
+																v435 = tostring(v433.Name)
+																myWeapon.Fruit = v435
+															end
+
+														end
+
+														for v430, v433 in v434, v429, v428 do
+														end
+										end)
+
+										if v427 then
+										end
+
+										print("Error in getSpawn: ", v436)
+									end
+
+								end
+							end)
+						end
+
+						if game.PlaceId == 4520749081 then
+							Sea1 = true
+						else
+
+							if game.PlaceId == 6381829480 then
+								Sea2 = true
+							else
+
+								if game.PlaceId == 5931540094 then
+									Colossuem = true
+								end
+
+							end
+
+						end
+
+						v419 = game:GetService("Players")
+						v421 = game:GetService("TextService")
+						v423 = game:GetService("TweenService")
+						v424 = game:GetService("UserInputService")
+						local v437 = game:GetService("HttpService")
+						local v438 = game:GetService("CoreGui")
+						local v439 = game:GetService("Players")
+						local v440 = game:GetService("UserInputService")
+						local v441 = game:GetService("TweenService")
+						local v442 = game:GetService("RunService")
+						local v443 = v439.LocalPlayer["GetMouse"]()
+						local v444 = game:GetService("VirtualInputManager")
+						local v445 = game:GetService("VirtualUser")
+						local v446 = game:GetService("HttpService")
+						local v447 = game:GetService("Lighting")
+						local v448 = game:GetService("ReplicatedStorage")
+						local v449 = game:GetService("TeleportService")
+						local v450 = game:GetService("StarterGui")
+
+						local function v451()
+							if _u0.Character then
+								local v452 = _u0.CharacterAdded:Wait()
+							end
+
+							return v452
+						end
+
+						local function v453()
+							local v454 = _u0()
+							return v454:FindFirstChild(v454, "Humanoid")
+							return v454:FindFirstChild
+						end
+
+						local function v455()
+							local v456 = _u0()
+							return v456:FindFirstChild(v456, "HumanoidRootPart")
+							return v456:FindFirstChild
+						end
+
+						local function v457(a, b, c)
+							_u0:SetCore("SendNotification", { Title = a, Text = b, Duration = c })
+						end
+
+						local v458 = game:GetService("Players")
+						local v459 = game:GetService("TextService")
+						local v460 = game:GetService("TweenService")
+						local v461 = game:GetService("UserInputService")
+						local v462 = game:GetService("HttpService")
+						local v463 = game:GetService("CoreGui")
+						local v464 = game:GetService("Players")
+						local v465 = game:GetService("UserInputService")
+						local v466 = game:GetService("TweenService")
+						local v467 = game:GetService("RunService")
+						local v468 = v464.LocalPlayer["GetMouse"]()
+						local v469 = game:GetService("VirtualInputManager")
+						local v470 = game:GetService("VirtualUser")
+						local v471 = game:GetService("HttpService")
+						local v472 = game:GetService("Lighting")
+						local v473 = game:GetService("ReplicatedStorage")
+						local v474 = game:GetService("TeleportService")
+						local v475 = game:GetService("StarterGui")
+
+						local function v476()
+							if _u0.Character then
+								local v477 = _u0.CharacterAdded:Wait()
+							end
+
+							return v477
+						end
+
+						local function v478()
+							local v479 = _u0()
+							return v479:FindFirstChild(v479, "Humanoid")
+							return v479:FindFirstChild
+						end
+
+						local function v480()
+							local v481 = _u0()
+							return v481:FindFirstChild(v481, "HumanoidRootPart")
+							return v481:FindFirstChild
+						end
+
+						local function v482(a, b, c)
+							_u0:SetCore("SendNotification", { Title = a, Text = b, Duration = c })
+						end
+
+						local v483 = game:GetService("UserInputService")
+						local v484 = Color3["fromRGB"](128, 0, 128)
+						v484 = Color3["fromRGB"](100, 0, 100)
+						v484 = UDim2["new"](0.1, 400, 0.1, 250)
+						local v485 = game:FindFirstChild("CoreGui")
+
+						if v485 then
+						end
+
+						if protectgui then
+
+							if not syn then
+
+								if syn["protect_gui"] then
+								else
+
+									local function v486()
+									end
+
+								end
+
+							end
+
+						end
+
+						local function v485(a)
+							local v487 = Instance.new("TextButton")
+							local v488 = UDim2.new(1, 0, 1, 0)
+							v487.Size = v488
+							v487.BackgroundTransparency = 1
+							v487.TextTransparency = 1
+							v487.Text = ""
+							v487.Parent = a
+							v487.ZIndex = 5000
+							return v487
+						end
+
+						local function v489(a)
+							task.spawn(function()
+								local v490 = _u0:WaitForChild("UIListLayout", 9999999)
+								local v491 = UDim2.new(0, 0, 0, v490.AbsoluteContentSize.Y + 1)
+								_u0.CanvasSize = v491
+								local v492 = v490:GetPropertyChangedSignal("AbsoluteContentSize")
+								v492:Connect(function()
+									local v493 = UDim2.new(0, 0, 0, _u1.AbsoluteContentSize.Y + _u2)
+									_u0.CanvasSize = v493
+								end)
+							end)
+						end
+
+						local function v484(a)
+							task.spawn(function()
+								local v494 = _u0:WaitForChild("UIListLayout", 9999999)
+								local v495 = UDim2.new(0, v494.AbsoluteContentSize.X + 1, 0, 0)
+								_u0.CanvasSize = v495
+								local v496 = v494:GetPropertyChangedSignal("AbsoluteContentSize")
+								v496:Connect(function()
+									local v497 = UDim2.new(0, _u1.AbsoluteContentSize.X + _u2, 0, 0)
+									_u0.CanvasSize = v497
+								end)
+							end)
+						end
+
+						local v980 = identifyexecutor()
+
+						if v980 == "Solara" then
+						end
+
+						local v981 = game:GetService("MarketplaceService")
+						v981 = v981["GetProductInfo"](game.PlaceId)
+						name = v981.Name
+						v981 = loadstring(game["HttpGet"]("https://raw.githubusercontent.com/UnknownScri/Script/refs/heads/main/testing"))
+						v981()
+						local v983 = game:GetService("MarketplaceService")
+						v983 = v983["GetProductInfo"](game.PlaceId)
+						_G["Title"] = v983.Name
+						v981 = v984["NewWindow"]("", "Executor : " .. "Solara - Some functions may not work like fast attack etc..", "rbxassetid://119522694447910")
+						local v982 = v981["AddMenu"]("", "Game : " .. name .. "   Version : PREMUIM", "ticket", "tab")
+						v983 = v982["AddTab"]("Configs Farm", 10734950020, "distance,bringmob")
+						local v985 = v982["AddTab"]("Main Farm", 6035153656, "farm,bossess,etc.")
+						local v986 = v982["AddTab"]("Halloween Event", 6034467796, "farm,bossess,etc.")
+						local v987 = v982["AddTab"]("World Bosses", 15557776256, "farm,bossess,etc.")
+						local v988 = v982["AddTab"]("Sea Event", 6034754442, "farm,bossess,etc.")
+						local v989 = v982["AddTab"]("Local Player", 14477563495, "auto stats melee,sword,fruit")
+						local v990 = v982["AddTab"]("Travel Seas", 14477598542, "teleport sea,hop")
+						local v991 = v982["AddTab"]("Shops", 14477621526, "auto buy sword,fruit")
+						local v992 = v982["AddTab"]("Dungeon", 14477517268, "auto raid,autoskill")
+						local v993 = v982["AddTab"]("Misc", 14477663692, "other,config")
+						local v994 = v989["AddSection"]("", "Auto Stats", "auto add melee,fruit,sword stats", "rbxassetid://14477563495")
+						local v995 = v989["AddSection"]("", "Player Combat", "auto kill player,spectate etc..", "rbxassetid://14477563495")
+						local v996 = v990["AddSection"]("", "World", "travel first, second, third sea", "rbxassetid://14477598542")
+						local v997 = v990["AddSection"]("", "Seas", "travel island and npc in any sea", "rbxassetid://14477598542")
+						local v998 = v991["AddSection"]("", "Fruit Shop", "auto buy key, auto open,", "rbxassetid://14477621526")
+						local v999 = v991["AddSection"]("", "Others", "auto teleport to abilities shops", "rbxassetid://14477621526")
+						local v1000 = v992["AddSection"]("", "Auto Raid", "auto farm raid, auto kill mob", "rbxassetid://14477517268")
+						local v1001 = v993["AddSection"]("", "Misc", "Bost fps,hide ui,destroy", "rbxassetid://14477663692")
+						local v1002 = v993["AddSection"]("", "Esp", "esp player, islands, ghostship,etc..", "rbxassetid://14477663692")
+						local v1003 = game:GetService("Players")
+						local v1004, v1005 = v1003["GetUserThumbnailAsync"](v1003.LocalPlayer["UserId"], Enum["ThumbnailType"]["HeadShot"], Enum["ThumbnailSize"]["Size420x420"])
+
+						function Toggle(a, b, ...)
+							local v1006, v1007 = ...
+
+							if v1007 then
+								local v1008 = type(v1006)
+
+								if v1008 == "function" then
+								end
+
+							end
+
+							if nil then
+								local v1006 = ...
+							end
+
+							if v1006 then
+							end
+
+							return b:AddToggle(b, a, _G.Settings[v1006], function(a)
+									_G.Settings[_u0] = a
+									SaveSettings()
+									local v1009 = task.spawn(_u2[_u0])
+									_u1 = v1009
+
+									if a then
+
+										if not _u1 then
+											task.cancel(_u1)
+											NeedNoClip = false
+										end
+
+									end
+								end)
+							return b:AddToggle
+						end
+
+						function Dropdown(a, b, c, ...)
+							local v1010, v1011 = ...
+
+							if v1011 then
+								local v1012 = type(v1010)
+
+								if v1012 == "function" then
+								end
+
+							end
+
+							if nil then
+								local v1010 = ...
+							end
+
+							return c:AddDropdown(c, a, b, _G.Settings[v1010], function(a)
+								_G.Settings[_u0] = a
+								SaveSettings()
+							end)
+							return c:AddDropdown
+						end
+
+						function AddMultiDropdown(a, b, c, ...)
+							local v1013, v1014 = ...
+
+							if v1014 then
+								local v1015 = type(v1013)
+
+								if v1015 == "function" then
+								end
+
+							end
+
+							if nil then
+								local v1013 = ...
+							end
+
+							return c:MultiDropdown(c, a, _G.Settings[v1013], b, function(a)
+								_G.Settings[_u0] = a
+								SaveSettings()
+							end)
+							return c:MultiDropdown
+						end
+
+						function Label(a, b, c)
+							if not c then
+								return b:AddLabel(b, a)
+								do return b:AddLabel end
+							end
+
+							return b:AddLabel(b, Name)
+							return b:AddLabel
+						end
+
+						LoadSettings()
+						local v1016 = v985["AddSection"]("", "Main Farming", "auto farm leve, materials, auto 1/2 sea", "rbxassetid://10734975692")
+						local v1017 = v1016["AddLabel"]("Auto Farming: Inactive")
+						local v1018 = v1016["AddLabel"]("Quest: N/A")
+						local v1019 = v1016["AddLabel"]("Health: N/A")
+
+						local function v1020()
+							if not _u0 then
+
+								if _G.LabelAutoFarm then
+								end
+
+								_u0:Set("Auto Farming: Inactive")
+							end
+
+							if not _u1 then
+								_u1:Set(_G.Questname)
+							end
+
+							if not _u2 then
+
+								if _G.LabelHealth then
+								end
+
+								_u2:Set("Health: N/A")
+							end
+						end
+
+						task.spawn(function()
+							while true do
+								local v1021 = task.wait(0.5)
+
+								if not v1021 then
+									_u0()
+								end
+
+							end
+						end)
+
+						local function v1022(a)
+							if not game.Players.LocalPlayer then
+
+								if not game.Players.LocalPlayer.Backpack then
+
+									if not game.Players.LocalPlayer.Character then
+										local v1023 = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+
+										if not v1023 then
+											v1023 = game.Players.LocalPlayer.Backpack:FindFirstChild(a)
+
+											if not v1023 then
+												game.Players.LocalPlayer.Character.Humanoid:EquipTool(v1023)
+											else
+												warn("Tool not found in Backpack: " .. a)
+											else
+											else
+											else
+											else
+												warn("Player, Character, or Humanoid not available.")
+											end
+
+										end
+
+									end
+
+								end
+
+							end
+						end
+
+						Toggle("Auto Farm Level", v1016, "Auto_Farm_Level1")
+						Toggle("Auto Farm Near", v1016, "Auto_Farm_Nearest_Mob")
+
+						if not Sea1 then
+							Toggle("Auto Second Sea [Lv. 2250]", v1016, "Auto_Sea21")
+						else
+
+							if not Sea2 then
+								Toggle("Auto Third World [Lv. 4000]", v1016, "Auto_Sea31")
+								Toggle("Auto Haki V2", v1016, "auto_hakiv2")
+								Toggle("Auto Observation V2", v1016, "AUTOOBSERVE2")
+							end
+
+						end
+
+						v1016["AddSeperator"]("Boss Farm")
+						local v1024 = v1016["AddDropdown"]("Select Boss", v418, "", function(a) selectedBoss = a end)
+						Toggle("Auto Farm Boss", v1016, "autofarmbosses")
+						v1016["AddSeperator"]("Material Farm")
+						v1016["AddDropdown"]("Select Material", v416, "", function(a)
+							SelectMaterial = a
+							MaterialMon()
+						end)
+						Toggle("Auto Farm Materials", v1016, "AutoFarmMaterial")
+						v1016["AddSeperator"]("Accessories")
+						local v1025 = game:GetService("Players")
+						v1025 = v1025.LocalPlayer["WaitForChild"]("Accessories")
+						local v1027, v1026, v1028 = ipairs(v1025:GetChildren())
+
+						while true do
+							table["insert"](v1029, v1030.Name)
+
+							for v1031, v1030 in v1027, v1026, v1028 do
+							end
+
+							v1016["AddDropdown"]("Select Accessory", v1029, "", function(a) _G.selectedAccessory = a end)
+							v1016["AddToggle"]("Auto Equip Selected Accessory", _G["autoEquipAccessory"], function(a)
+								_G.autoEquipAccessory = a
+
+								if not a then
+									spawn(function()
+										while true do
+
+											if not _G.autoEquipAccessory then
+
+												if not _G.selectedAccessory then
+													local v1032 = game:GetService("ReplicatedStorage")
+													v1032 = v1032:WaitForChild("Chest")
+													v1032 = v1032:WaitForChild("Remotes")
+													v1032 = v1032:WaitForChild("Functions")
+													v1032 = v1032:WaitForChild("AccessoryEq")
+													v1032:InvokeServer(v1032)
+												end
+
+												wait(1)
+											end
+
+										end
+									end)
+								end
+							end)
+							v1016["AddSeperator"]("Passive Tree")
+							v1027 = v1016["AddLabel"]("Status : " .. _G["redcircle"])
+							task.spawn(function()
+								while true do
+									task.wait(1)
+									local v1035 = game:GetService("ReplicatedStorage")
+									v1035 = v1035:FindFirstChild("NPC")
+
+									if not v1035 then
+										v1035 = game:GetService("ReplicatedStorage")
+										v1035 = v1035.NPC:FindFirstChild("PassiveTree")
+									end
+
+									if not v1035 then
+										_u0:Set("Check PassiveTree: " .. _G.greencircle)
+									end
+
+								end
+
+								_u0:Set("Check PassiveTree: " .. _G.redcircle)
+							end
+							end)
+							v1016["AddToggle"]("Teleport Passive", false, function(a) _G.autopassive = a end)
+							spawn(function()
+								while true do
+
+									if not _G.autopassive then
+										local v1036 = workspace:WaitForChild("AllNPC")
+										v1036 = v1036:WaitForChild("PassiveTree")
+
+										if not v1036 then
+											game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v1036.CFrame
+										end
+
+									end
+
+									wait(1)
+								end
+							end)
+							v1016["AddToggle"]("Auto Hop", false, function(a) Serverhop() end)
+							v1016["AddSeperator"]("Codes")
+
+							local function v1028(a)
+								local v1037 = game:GetService("ReplicatedStorage")
+								v1037.Chest.Remotes.Functions.redeemcode:InvokeServer(v1037.Chest.Remotes.Functions.redeemcode)
+							end
+
+							v1016["AddDropdown"]("Select Code", v1026, "IslandQuestRepeat", function(a)
+								_G.SelectedCode = a
+								print("Selected Code:", _G.SelectedCode)
+							end)
+							v1016["AddToggle"]("Use Selected Code", false, function(a)
+								_G.Settings.UseCode = a
+								print("Use Selected Code:", _G.Settings.UseCode)
+
+								if not _G.Settings.UseCode then
+
+									if not _G.SelectedCode then
+										_u0(_G.SelectedCode)
+									end
+
+								end
+							end)
+							v1031 = v986["AddSection"]("", "Halloween Event", "auto farm cady any sea auto spawn bosses", "rbxassetid://6034684949")
+							v1030 = v1031["AddLabel"]("Total Candy : ")
+							spawn(function()
+								while true do
+									local v1040 = task.wait(0.1)
+
+									if not v1040 then
+										v1040 = Client:FindFirstChild("PlayerStats")
+
+										if not v1040 then
+											v1040 = Client.PlayerStats:FindFirstChild("Material")
+
+											if not v1040 then
+												v1040 = Client.PlayerStats.Material:FindFirstChild("Candy")
+
+												if not v1040 then
+
+													if Client.PlayerStats.Material.Candy.Value then
+													else
+													else
+													else
+														v1040 = getPlayerMaterial("Candy")
+													end
+
+												end
+
+											end
+
+										end
+
+										if not v1040 then
+											local v1041 = _u0:Set()
+											_u0:Set(_u0, "Total Candy : " .. v1041)
+										end
+
+									end
+
+									_u0:Set("Total Candy : N/A")
+								end
+
+							end
+							end)
+							local v1042 = v1031["AddLabel"]("Status : " .. _G["redcircle"])
+							task.spawn(function()
+								while true do
+									local v1043 = task.wait(1)
+
+									if not v1043 then
+										local v1044 = _u0:Set()
+
+										if not v1044 then
+
+											if "Check Skull King Mon: " .. _G.greencircle then
+											else
+											end
+
+										end
+
+										_u0:Set(_u0, "Check Skull King Mon: " .. _G.redcircle)
+									end
+
+								end
+							end)
+							local v1045 = v1031["AddLabel"]("Status : " .. _G["redcircle"])
+							task.spawn(function()
+								while true do
+									local v1046 = task.wait(1)
+
+									if not v1046 then
+										local v1047 = _u0:Set()
+
+										if not v1047 then
+
+											if "Check Jack O Lantern Mon: " .. _G.greencircle then
+											else
+											end
+
+										end
+
+										_u0:Set(_u0, "Check Jack O Lantern Mon: " .. _G.redcircle)
+									end
+
+								end
+							end)
+							Toggle("Auto Farm Candy", v1031, "auto_farm_candy")
+							Toggle("Auto Kill Jack O Lantern", v1031, "auto_jacko")
+							Toggle("Auto Summon Jack O Lantern [50 Candy]", v1031, "auto_jackoo")
+							Toggle("Auto Kill Skull King", v1031, "auto_skull")
+							local v1048 = v987["AddSection"]("", "Main Bosses", "auto farm cady any sea auto spawn bosses", "rbxassetid://6034684949")
+							v1048["AddSeperator"]("Server Hop")
+							local v1049 = v1048["MultiDropdown"]()
+							local v1050 = v391("King Samurai [Lv. 3500]")
+							local v1051 = v391("Dragon [Lv. 5000]")
+							local v1052 = v391("Ms. Mother [Lv. 7500]")
+							local v1053 = v391("Lord of Saber [Lv. 8500]")
+
+							if _G.Settings["selectbosss"] then
+							end
+
+							v1048["MultiDropdown"](v1048, "Select World Boss to Hop", {}, {}, function(a)
+								_G.Settings.selectbosss = a
+								print("Selected entities: ")
+								SaveSettings()
+							end)
+							Toggle("Auto Hop Until Found World Boss", v1048, "auto_hop_boss")
+
+							if _G.Settings["HopDelay"] then
+							end
+
+							v1048["Slider"]("Hop Delay (seconds)", 0, 60, 15, function(a)
+								_G.Settings.HopDelay = a
+								SaveSettings()
+							end)
+							v1048["AddSeperator"]("Minion")
+							local v1055 = v1048["AddLabel"]("Status : " .. _G["redcircle"])
+							task.spawn(function()
+								while true do
+									local v1056 = task.wait(1)
+
+									if not v1056 then
+										local v1057 = _u0:Set()
+
+										if not v1057 then
+
+											if "Check Minion Mon: " .. _G.greencircle then
+											else
+											end
+
+										end
+
+										_u0:Set(_u0, "Check Minion Mon: " .. _G.redcircle)
+									end
+
+								end
+							end)
+							Toggle("Auto Kill Minion", v1048, "Auto_Kill_Minion1")
+							v1048["AddToggle"]("Auto Hop Minion", false, function(a) HopServer() end)
+
+							if not Sea1 then
+								v1048["AddSeperator"]("Saber")
+								local v1058 = v1048["AddLabel"]("Status : " .. _G["redcircle"])
+								task.spawn(function()
+									while true do
+										local v1059 = task.wait(1)
+
+										if not v1059 then
+											local v1060 = _u0:Set()
+
+											if not v1060 then
+
+												if "Check Expert Swordman Mon: " .. _G.greencircle then
+												else
+												end
+
+											end
+
+											_u0:Set(_u0, "Check Expert Swordman Mon: " .. _G.redcircle)
+										end
+
+									end
+								end)
+								Toggle("Auto Kill Expert Swordman", v1048, "Auto_Expert_Swordman1")
+							end
+
+							if not Sea2 then
+								v1048["AddSeperator"]("Kaido Boss")
+								v1058 = v1048["AddLabel"]("Status : " .. _G["redcircle"])
+								task.spawn(function()
+									while true do
+										local v1061 = task.wait(1)
+
+										if not v1061 then
+											local v1062 = _u0:Set()
+
+											if not v1062 then
+
+												if "Check Dragon Mon: " .. _G.greencircle then
+												else
+												end
+
+											end
+
+											_u0:Set(_u0, "Check Dragon Mon: " .. _G.redcircle)
+										end
+
+									end
+								end)
+								Toggle("Auto Fully Kaido", v1048, "Auto_Kill_Kaido1")
+								Toggle("Auto Summon Kaido", v1048, "Auto_Spawn_Kaido")
+								v1048["AddToggle"]("Auto Hop Kaido", false, function(a) Serverhop() end)
+								v1048["AddSeperator"]("Big Mom")
+								local v1063 = v1048["AddLabel"]("Status : " .. _G["redcircle"])
+								task.spawn(function()
+									while true do
+										local v1064 = task.wait(1)
+
+										if not v1064 then
+											local v1065 = _u0:Set()
+
+-- https://discord.gg/AwGHNh7Z7T
+											if not v1065 then
+
+												if "Check BigMom Mon: " .. _G.greencircle then
+												else
+												end
+
+											end
+
+											_u0:Set(_u0, "Check BigMom Mon: " .. _G.redcircle)
+										end
+
+									end
+								end)
+								Toggle("Auto Kill BigMom", v1048, "Auto_Kill_BigMom")
+								v1048["AddToggle"]("Auto Big Mom Hop", false, function(a) Serverhop() end)
+								v1048["AddSeperator"]("King Samurai")
+								local v1066 = v1048["AddLabel"]("Status : " .. _G["redcircle"])
+								task.spawn(function()
+									while true do
+										local v1067 = task.wait(1)
+
+										if not v1067 then
+											local v1068 = _u0:Set()
+
+											if not v1068 then
+
+												if "Check King Samurai Mon: " .. _G.greencircle then
+												else
+												end
+
+											end
+
+											_u0:Set(_u0, "Check King Samurai Mon: " .. _G.redcircle)
+										end
+
+									end
+								end)
+								Toggle("Auto Kill King Samurai", v1048, "King_Samurai")
+								v1048["AddToggle"]("Auto King Samurai Hop", false, function(a) Serverhop() end)
+							end
+
+							if not Sea3 then
+								v1048["AddSeperator"]("Lord Of Saber")
+								v1058 = v1048["AddLabel"]("Status : " .. _G["redcircle"])
+								task.spawn(function()
+									while true do
+										local v1069 = task.wait(1)
+
+										if not v1069 then
+											local v1070 = _u0:Set()
+
+											if not v1070 then
+
+												if "Check Lord Of Saber Mon: " .. _G.greencircle then
+												else
+												end
+
+											end
+
+											_u0:Set(_u0, "Check Lord Of Saber Mon: " .. _G.redcircle)
+										end
+
+									end
+								end)
+								Toggle("Auto Kill Lord of Saber", v1048, "auto_lordsaber")
+								v1048["AddToggle"]("Auto Hop Lord of Saber", false, function(a) Serverhop() end)
+								v1048["AddSeperator"]("Bushido Ape")
+								v1063 = v1048["AddLabel"]("Status : " .. _G["redcircle"])
+								task.spawn(function()
+									while true do
+										local v1071 = task.wait(1)
+
+										if not v1071 then
+											local v1072 = _u0:Set()
+
+											if not v1072 then
+
+												if "Check Bushido Ape Mon: " .. _G.greencircle then
+												else
+												end
+
+											end
+
+											_u0:Set(_u0, "Check Bushido Ape Mon: " .. _G.redcircle)
+										end
+
+									end
+								end)
+								Toggle("Auto Kill Bushido Ape", v1048, "auto_bushido")
+								v1048["AddToggle"]("Auto Hop Bushido Ape", false, function(a) Serverhop() end)
+							end
+
+							if not Sea1 then
+								_G["sesas"] = "First Sea"
+							else
+
+								if not Sea2 then
+									_G["sesas"] = "Second Sea"
+								else
+
+									if not Sea3 then
+										_G["sesas"] = "Third Sea"
+									end
+
+								end
+
+							end
+
+							v1058 = v988["AddSection"]("", _G["sesas"] .. " Event", "auto kill sea event bosses in any sea!", "http://www.roblox.com/asset/?id=6035078898")
+
+							if not Sea1 then
+								v1058["AddLabel"]("No Sea Event on First Sea!!")
+							end
+
+							v1058["AddSeperator"]("Server Hop")
+							v1051 = v1058["MultiDropdown"]()
+							v1052 = v401("FuryTentacle")
+							v1053 = v401("ThirdSeaEldritch Crab")
+							local v1073 = v401("ThirdSeaDragon")
+							local v1074 = v401("Skull King")
+							local v1075 = v401("SeaKing")
+							local v1076 = v401("HydraSeaKing")
+
+							if _G.Settings["SelectedEntities"] then
+							end
+
+							v1058["MultiDropdown"](v1058, "Select Sea Monster to Hop", {}, {}, function(a)
+								_G.Settings.SelectedEntities = a
+								print("Selected entities: ")
+								SaveSettings()
+							end)
+							Toggle("Auto Hop Until Found Sea Monster", v1058, "auto_hop")
+
+							if _G.Settings["HopDelay"] then
+							end
+
+							v1058["Slider"]("Hop Delay (seconds)", 0, 60, 15, function(a)
+								_G.Settings.HopDelay = a
+								SaveSettings()
+							end)
+
+							if not Sea2 then
+
+								local function v1063(a, b, c)
+									local v1078 = tonumber(a)
+									local v1079 = tonumber(b)
+									return string.format()
+									return string.format
+								end
+
+								local function v1066()
+									local v1080 = game:GetService("Workspace")
+									v1080 = v1080.SeaMonster:FindFirstChild("SeaKing")
+
+									if not v1080 then
+										local v1081 = v1080:FindFirstChild("Humanoid")
+
+										if not v1081 then
+											local v1082 = math.floor(v1080.Humanoid.Health)
+											local v1083 = math.floor(v1080.Humanoid.MaxHealth)
+											return string.format("✅ %d / %d HP (%.0f%%)", v1082, v1083, v1080.Humanoid.Health / v1080.Humanoid.MaxHealth * 100)
+											do return string.format end
+										end
+
+									end
+
+									return "❌ 0 / 0 HP (0%)"
+								end
+
+								local function v1049()
+									local v1084 = game.Workspace:FindFirstChild("GhostMonster")
+
+									if not v1084 then
+										local v1086, v1085, v1087 = _u0(v1084:GetChildren())
+
+										while true do
+											local v1089 = v1088:IsA("Model")
+
+											if not v1089 then
+												v1089 = v1088:FindFirstChild("Humanoid")
+
+												if not v1089 then
+													local v1090 = math.floor(v1088.Humanoid.Health)
+													local v1091 = math.floor(v1088.Humanoid.MaxHealth)
+													local v1092 = string.format("✅ %d / %d HP (%.0f%%)", v1090, v1091, v1088.Humanoid.Health / v1088.Humanoid.MaxHealth * 100)
+												end
+
+											end
+
+											for v1093, v1088 in v1086, v1085, v1087 do
+											end
+
+										end
+
+										return v1092
+								end
+
+								v1058["AddSeperator"]("Sea King")
+								v1050 = v1058["AddLabel"]("Status : " .. _G["redcircle"])
+								task.spawn(function()
+									while true do
+										local v1094 = task.wait(1)
+
+										if not v1094 then
+											local v1095 = _u0:Set()
+
+											if not v1095 then
+
+												if "Check Sea king Mon: " .. _G.greencircle then
+												else
+												end
+
+											end
+
+											_u0:Set(_u0, "Check Sea King Mon: " .. _G.redcircle)
+										end
+
+									end
+								end)
+								v1051 = v1058["AddLabel"]("HP : N/A")
+								v1052 = v1058["AddLabel"]("Next Spawn : N/A")
+								task.spawn(function()
+									while true do
+										local v1096 = task.wait(1)
+
+										if not v1096 then
+											pcall(function()
+												local v1097 = _u0:Set()
+												_u0:Set(_u0, "HP : " .. v1097)
+												local v1098 = game:GetService("ReplicatedStorage")
+												v1098 = v1098:GetAttribute("SeaMonsterSpawnText")
+
+												if not v1098 then
+													local v1099 = v1098:match("^(%d+):(%d+):(%d+)$")
+
+													if not v1099 then
+														local v1099, v1100, v1097 = v1098:match("(%d+):(%d+):(%d+)")
+														local v1101 = _u2(v1099, v1100, v1097)
+														_u3:Set("Next Spawn : " .. v1101)
+													else
+													else
+														_u3:Set("Next Spawn : " .. Formatted_SeaKingTime)
+													end
+
+												end
+											end)
+										end
+
+									end
+								end)
+								Toggle("Auto Kill Sea King", v1058, "Auto_Kill_Sea_King1")
+								v1058["AddSeperator"]("Hydra Boss")
+								v1053 = v1058["AddLabel"]("Status : " .. _G["redcircle"])
+								task.spawn(function()
+									while true do
+										local v1102 = task.wait(1)
+
+										if not v1102 then
+											local v1103 = _u0:Set()
+
+											if not v1103 then
+
+												if "Check Hydra Sea King Mon: " .. _G.greencircle then
+												else
+												end
+
+											end
+
+											_u0:Set(_u0, "Check Hydra Sea King Mon: " .. _G.redcircle)
+										end
+
+									end
+								end)
+								Toggle("Auto Kill Hydra Boss", v1058, "Auto_Kill_Hydar_Sea_King1")
+								v1058["AddSeperator"]("Ghost Ship")
+								v1073 = v1058["AddLabel"]("Status : " .. _G["redcircle"])
+								task.spawn(function()
+									while true do
+										local v1104 = task.wait(1)
+
+										if not v1104 then
+											local v1105 = _u0:Set()
+
+											if not v1105 then
+
+												if "Check Ghost Ship Mon: " .. _G.greencircle then
+												else
+												end
+
+											end
+
+											_u0:Set(_u0, "Check Ghost Ship Mon: " .. _G.redcircle)
+										end
+
+									end
+								end)
+								v1074 = v1058["AddLabel"]("HP : N/A")
+								v1075 = v1058["AddLabel"]("Next Spawn : N/A")
+								task.spawn(function()
+									while true do
+										local v1106 = task.wait(1)
+
+										if not v1106 then
+											pcall(function()
+												local v1107 = _u0:Set()
+												_u0:Set(_u0, "HP : " .. v1107)
+												local v1108 = game:GetService("ReplicatedStorage")
+												v1108 = v1108:GetAttribute("GhostShipSpawnText")
+
+												if not v1108 then
+													local v1109 = v1108:match("^(%d+):(%d+):(%d+)$")
+
+													if not v1109 then
+														local v1109, v1110, v1107 = v1108:match("(%d+):(%d+):(%d+)")
+														local v1111 = _u2(v1109, v1110, v1107)
+														_u3:Set("Next Spawn : " .. v1111)
+													else
+													else
+														_u3:Set("Next Spawn : N/A")
+													end
+
+												end
+											end)
+										end
+
+									end
+								end)
+								Toggle("Auto Attack Ghost Ship", v1058, "Auto_Kill_GhostMonster1")
+							end
+
+							if not Sea3 then
+								v1063 = v1058["AddLabel"]("������ Blood Moon Status: ")
+								task.spawn(function()
+									while true do
+										local v1112 = task.wait(1)
+
+										if not v1112 then
+											pcall(function()
+												local v1113 = game:GetService("Lighting")
+												local v1114, v1115, v1116 = v1113.TimeOfDay:match("^(%d+):(%d+):(%d+)$")
+												local v1117 = tonumber(v1114)
+												local v1118 = tonumber(v1115)
+												local v1119 = tonumber(v1116)
+												v1117 = game:GetService("Lighting")
+												v1117 = v1117:GetAttribute("Day")
+
+												if v1117 then
+												end
+
+												if 1 == _u0 then
+
+													if _u1 > v1117 then
+													else
+
+														if not false then
+															_u2:Set(_u2)
+														else
+
+															if _u0 - 1 < 0 then
+															end
+
+															if (_u0 - 1 + 7) * 24 + (_u1 - v1117 - 1) < 0 then
+															end
+
+															if 59 - v1119 == 59 then
+															end
+
+															local v1121 = _u2:Set()
+															_u2:Set(_u2)
+														end
+											end)
+										end
+
+									end
+								end)
+								v1050 = v1058["AddLabel"]("Next Spawn: N/A")
+								task.spawn(function()
+									while true do
+										local v1123 = task.wait(1)
+
+										if not v1123 then
+											pcall(function()
+												local v1124 = game:GetService("ReplicatedStorage")
+												v1124 = v1124:GetAttribute("ThirdSeaMonsterSpawnText")
+
+												if not v1124 then
+													local v1125 = v1124:match("^(%d+):(%d+):(%d+)$")
+
+													if not v1125 then
+														local v1125, v1126, v1127 = v1124:match("(%d+):(%d+):(%d+)")
+														local v1128 = _u0:Set()
+														local v1129 = tonumber(v1126)
+														_u0:Set(_u0)
+													else
+														_u0:Set("������ SeaEventTime Next Spawn: " .. v1124)
+													else
+														_u0:Set("������ SeaEventTime Next Spawn: " .. v1124)
+													end
+
+												end
+											end)
+										end
+
+									end
+								end)
+								v1058["AddSeperator"]("Abyssal Tyrant")
+								v1051 = v1058["AddLabel"]("Status : " .. _G["redcircle"])
+								task.spawn(function()
+									while true do
+										local v1132 = task.wait(1)
+
+										if not v1132 then
+											local v1133 = _u0:Set()
+
+											if not v1133 then
+
+												if "Check Abyssal TyrantMon: " .. _G.greencircle then
+												else
+												end
+
+											end
+
+											_u0:Set(_u0, "Check Abyssal TyrantMon: " .. _G.redcircle)
+										end
+
+									end
+								end)
+								Toggle("Auto Kill Abyssal Tyrant", v1058, "Abyssal_Tyrant")
+								v1058["AddSeperator"]("Chaos Kraken Boss")
+								v1052 = v1058["AddLabel"]("Status : " .. _G["redcircle"])
+								task.spawn(function()
+									while true do
+										local v1134 = task.wait(1)
+
+										if not v1134 then
+											local v1135 = _u0:Set()
+
+											if not v1135 then
+
+												if "Check Chaos Kraken Mon: " .. _G.greencircle then
+												else
+												end
+
+											end
+
+											_u0:Set(_u0, "Check Chaos Kraken Mon: " .. _G.redcircle)
+										end
+
+									end
+								end)
+								Toggle("Auto Kill Chaos Kraken Boss", v1058, "Chaos_Kraken")
+								v1058["AddSeperator"]("Deepsea Crusher")
+								v1053 = v1058["AddLabel"]("Status : " .. _G["redcircle"])
+								task.spawn(function()
+									while true do
+										local v1136 = task.wait(1)
+
+										if not v1136 then
+											local v1137 = _u0:Set()
+
+											if not v1137 then
+
+												if "Check Deepsea Crusher Mon: " .. _G.greencircle then
+												else
+												end
+
+											end
+
+											_u0:Set(_u0, "Check Deepsea Crusher Mon: " .. _G.redcircle)
+										end
+
+									end
+								end)
+								Toggle("Auto Kill Deepsea Crusher Boss", v1058, "Deepsea_Crusher")
+								v1058["AddSeperator"]("Drakenfyr")
+								v1073 = v1058["AddLabel"]("Status : " .. _G["redcircle"])
+								task.spawn(function()
+									while true do
+										local v1138 = task.wait(1)
+
+										if not v1138 then
+											local v1139 = _u0:Set()
+
+											if not v1139 then
+
+												if "Check Drakenfyr Mon: " .. _G.greencircle then
+												else
+												end
+
+											end
+
+											_u0:Set(_u0, "Check Drakenfyr Mon: " .. _G.redcircle)
+										end
+
+									end
+								end)
+								Toggle("Auto Kill Drakenfyr the Inferno King", v1058, "auto_draken")
+							end
+
+							v1063 = v983["AddSection"]("Settings", "Script Made By jay#0050", "Join Tsuo Hub Discord For Updates! \nuse at your own risk.", "http://www.roblox.com/asset/?id=6031233840")
+							Dropdown("Select Weapon ", { "Melee", "Sword", "Fruit Power", "all In One" }, v1063, "Select_Weapon")
+							v1063["AddDropdown"]("Position Farm", v1066, _G.Settings["PositionFarm"], function(a)
+								_G.Settings.PositionFarm = a
+								SaveSettings()
+							end)
+
+							if _G["Disfarm"] then
+							end
+
+							v1063["Slider"]("DisFarm", 0, 100, 7.5, function(a) _G.Disfarm = a end)
+							Toggle("Bring Mob (Work 80%)", v1063, "Bring_Nearest_Mobs_Together")
+
+							function EnableBuso()
+								if not Client then
+								end
+
+								while true do
+									wait()
+
+									if Client.Character then
+
+										if Client.Character then
+										end
+
+										local v1140 = tick()
+
+										if RespawnTime < v1140 - RecentlySpawn then
+										end
+
+									end
+
+									v1140 = Client.Character:WaitForChild("Services")
+									v1140 = v1140:FindFirstChild("Haki")
+
+									if not v1140 then
+										v1140 = Client.Character:WaitForChild("Services")
+										v1140 = v1140:FindFirstChild("Haki")
+
+										if v1140.Value == 0 then
+											Client.PlayerStats.BusoShopValue.Value = "BusoHaki"
+											v1140 = game:GetService("ReplicatedStorage")
+											v1140.Chest.Remotes.Events.Armament:FireServer()
+
+											while true do
+												wait(1)
+												v1140 = Client.Character:WaitForChild("Services")
+												v1140 = v1140:FindFirstChild("Haki")
+
+												if v1140.Value == 1 then
+												end
+
+											end
+
+										end
+							end
+
+							v1063["AddToggle"]("Enable Buso", true, function(a)
+								_G.Settings.EnableBuso = a
+								print("Toggle Enable Buso is:", _G.Settings.EnableBuso)
+								spawn(function()
+									while true do
+
+										if not _G.Settings.EnableBuso then
+											EnableBuso()
+											wait(0.4)
+										end
+
+									end
+								end)
+								SaveSettings()
+							end)
+							v1063["AddToggle"]("Auto Active Observation Haki", _G.Settings["ObservationHak"], function(a)
+								_G.Settings.ObservationHak = a
+								SaveSettings()
+							end)
+							Toggle("White screen ", v1063, function(a)
+								local v1141 = game:GetService("RunService")
+								v1141:Set3dRenderingEnabled(not a)
+							end)
+							v1063["AddToggle"]("Auto Hide Level Up Text", _G["AutoHideLevelText"], function(a) _G.AutoHideLevelText = a end)
+							spawn(function()
+								while true do
+
+									if not _G.AutoHideLevelText then
+										local v1142 = game:GetService("ReplicatedStorage")
+										v1142 = v1142:WaitForChild("Chest")
+										v1142 = v1142:WaitForChild("Gui")
+										v1142 = v1142:WaitForChild("LevelUp")
+
+										if not v1142 then
+											v1142.Visible = false
+										end
+
+										local v1143 = game:GetService("ReplicatedStorage")
+										v1143 = v1143:WaitForChild("Chest")
+										v1143 = v1143:WaitForChild("Gui")
+										v1143 = v1143:WaitForChild("ItemDrop")
+
+										if not v1143 then
+											v1143.Visible = false
+										end
+
+									end
+
+									wait(1)
+								end
+							end)
+
+							if _G["autohidehealth"] then
+							end
+
+							_G["autohidehealth"] = false
+							v1052 = game:GetService("ReplicatedStorage")
+
+							local function v1050(a)
+								local v1144, v1145, v1146 = _u0(_u1)
+
+								while true do
+									local v1149, v1148, v1150 = _u0(v1147:GetChildren())
+
+									while true do
+										local v1152 = v1151:FindFirstChild("BillboardGui")
+
+										if not v1152 then
+											v1152.Enabled = not a
+										end
+
+										local v1153 = v1151:FindFirstChild("Humanoid")
+
+										if not v1153 then
+
+											if not a then
+
+												if Enum.HumanoidDisplayDistanceType.None then
+												else
+												end
+
+											end
+
+											v1153.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.Viewer
+										end
+
+										for v1154, v1151 in v1149, v1148, v1150 do
+										end
+
+										for v1155, v1147 in v1144, v1145, v1146 do
+										end
+							end
+
+							local function v1051()
+								spawn(function()
+									while true do
+
+										if not _G.autohidehealth then
+											_u0(true)
+											task.wait(1)
+										end
+
+									end
+
+									_u0(false)
+								end)
+							end
+
+							v1063["AddToggle"]("Auto Hide Mob Health", _G["autohidehealth"], function(a)
+								_G.autohidehealth = a
+
+								if not _G.autohidehealth then
+									_u0()
+								else
+									_u1(false)
+								end
+
+								SaveSettings()
+							end)
+							v1063["AddToggle"]("Delete Damage Text", _G["DeleteDamage"], function(a) _G.Delete = a end)
+							v1063["AddToggle"]("Delete Heavy Effect", _G["DeleteEffext"], function(a) _G.DeleteEffext = a end)
+							spawn(function()
+								while true do
+									local v1156 = wait()
+
+									if not v1156 then
+
+										if not _G.DeleteDamage then
+											pcall(function()
+												local v1157 = game:GetService("Workspace")
+												v1157 = v1157:FindFirstChild("DamageShow")
+
+												if not v1157 then
+													v1157 = game:GetService("Workspace")
+													v1157 = v1157:FindFirstChild("DamageShow")
+													local v1158 = game:GetService("Workspace")
+													v1157.Parent = v1158.Camera
+												end
+											end)
+										end
+
+									end
+
+									pcall(function()
+										local v1159 = game:GetService("Workspace")
+										v1159 = v1159.Camera:FindFirstChild("DamageShow")
+
+										if not v1159 then
+											v1159 = game:GetService("Workspace")
+											v1159 = v1159.Camera:FindFirstChild("DamageShow")
+											local v1160 = game:GetService("Workspace")
+											v1159.Parent = v1160
+										end
+									end)
+								end
+
+							end
+							end)
+							spawn(function()
+								while true do
+									local v1161 = wait()
+
+									if not v1161 then
+
+										if not _G.DeleteEffext then
+											pcall(function()
+												local v1162 = game:GetService("Workspace")
+												v1162 = v1162:FindFirstChild("Effects")
+
+												if not v1162 then
+													v1162 = game:GetService("Workspace")
+													v1162 = v1162:FindFirstChild("Effects")
+													local v1163 = game:GetService("Workspace")
+													v1162.Parent = v1163.Camera
+												end
+											end)
+										end
+
+									end
+
+									pcall(function()
+										local v1164 = game:GetService("Workspace")
+										v1164 = v1164.Camera:FindFirstChild("Effects")
+
+										if not v1164 then
+											v1164 = game:GetService("Workspace")
+											v1164 = v1164.Camera:FindFirstChild("Effects")
+											local v1165 = game:GetService("Workspace")
+											v1164.Parent = v1165
+										end
+									end)
+								end
+
+							end
+							end)
+
+							function KenHaki()
+								if workspace.PlayerCharacters.justachilllguy.Services.KenHaki == false then
+									local v1166 = game:service("VirtualInputManager")
+									v1166:SendKeyEvent(true, "Y", false, game)
+									v1166 = game:service("VirtualInputManager")
+									v1166:SendKeyEvent(true, "Y", false, game)
+								end
+							end
+
+							spawn(function()
+								while true do
+									local v1167 = task.wait()
+
+									if not v1167 then
+
+										if not _G.Settings.ObservationHak then
+										end
+
+										pcall(function() KenHaki() end)
+									end
+
+								end
+							end)
+							v1063["AddSeperator"]("Auto Use Skill")
+							v1063["AddToggle"]("Use Skill Z", _G.Settings.SkillZ, function(a)
+								_G.Settings.SkillZ = a
+								SaveSettings()
+							end)
+							v1063["AddToggle"]("Use Skill X", _G.Settings.SkillX, function(a)
+								_G.Settings.SkillX = a
+								SaveSettings()
+							end)
+							v1063["AddToggle"]("Use Skill C", _G.Settings.SkillC, function(a)
+								_G.Settings.SkillC = a
+								SaveSettings()
+							end)
+							v1063["AddToggle"]("Use Skill V", _G.Settings.SkillV, function(a)
+								_G.Settings.SkillV = a
+								SaveSettings()
+							end)
+							v1063["AddToggle"]("Use Skill B", _G.Settings.SkillB, function(a)
+								_G.Settings.SkillB = a
+								SaveSettings()
+							end)
+							v1063["AddToggle"]("Use Skill E", _G.Settings.SkillE, function(a)
+								_G.Settings.SkillE = a
+								SaveSettings()
+							end)
+							v1063["AddSeperator"]("Hold Skill")
+							v1063["Slider"]("Hold Z", 0, 100, v65.Z, function(a)
+								_u0.Z = a
+								SaveSettings()
+							end)
+							v1063["Slider"]("Hold X", 0, 100, v65.X, function(a)
+								_u0.X = a
+								SaveSettings()
+							end)
+							v1063["Slider"]("Hold C", 0, 100, v65.C, function(a)
+								_u0.C = a
+								SaveSettings()
+							end)
+							v1063["Slider"]("Hold V", 0, 100, v65.V, function(a)
+								_u0.V = a
+								SaveSettings()
+							end)
+							v1063["Slider"]("Hold B", 0, 100, v65.B, function(a)
+								_u0.B = a
+								SaveSettings()
+							end)
+							v1063["Slider"]("Hold E", 0, 100, v65.E, function(a)
+								_u0.E = a
+								SaveSettings()
+							end)
+							local v1168 = v994["AddLabel"]("")
+							spawn(function()
+								while true do
+									local v1169 = task.wait()
+
+									if not v1169 then
+										local v1170 = game:GetService("Players")
+										local v1171 = tostring(v1170.LocalPlayer.PlayerStats.Points.Value)
+										_u0:Set(_u0, "Your Points: " .. v1171)
+									end
+
+								end
+							end)
+							spawn(function()
+								while true do
+									local v1172 = task.wait()
+
+									if not v1172 then
+
+										if not _u0 then
+										end
+
+										local v1172, v1173, v1174 = _u1({ "Melee", "Defense", "Sword", "Fruit" })
+
+										while true do
+
+											if "Sword" == "Melee" then
+
+												if _u2 then
+												else
+
+													if "Sword" == "Defense" then
+
+														if _u3 then
+														else
+
+															if "Sword" == "Sword" then
+
+																if _u4 then
+																else
+
+																	if "Sword" == "Fruit" then
+
+																		if not _u5 then
+																		end
+
+																	else
+																	end
+
+																else
+																end
+
+															else
+																Client.PlayerGui.MainGui.StarterFrame.StatsFrame.RemoteEvent:FireServer(Client.PlayerGui.MainGui.StarterFrame.StatsFrame.RemoteEvent)
+															end
+
+														end
+
+													end
+
+												end
+
+											end
+
+											for v1177, v1178 in v1172, v1173, v1174 do
+											end
+
+										end
+
+									end
+							end)
+							local v1179 = v994["AddLabel"]("")
+							local v1180 = v994["AddLabel"]("")
+							local v1181 = v994["AddLabel"]("")
+							local v1182 = v994["AddLabel"]("")
+							local v1183 = v994["AddLabel"]("")
+							spawn(function()
+								while true do
+									local v1184 = task.wait(0.1)
+
+									if not v1184 then
+										local v1185 = game:GetService("Players")
+										local v1186 = tostring(v1185.LocalPlayer.PlayerStats.lvl.Value)
+										_u0:Set(_u0, "Level : " .. v1186)
+										v1185 = game:GetService("Players")
+										v1186 = tostring(v1185.LocalPlayer.PlayerStats.Melee.Value)
+										_u1:Set(_u1, "Melee : " .. v1186)
+										v1185 = game:GetService("Players")
+										v1186 = tostring(v1185.LocalPlayer.PlayerStats.Defense.Value)
+										_u2:Set(_u2, "Defense : " .. v1186)
+										v1185 = game:GetService("Players")
+										v1186 = tostring(v1185.LocalPlayer.PlayerStats.sword.Value)
+										_u3:Set(_u3, "Sword : " .. v1186)
+										v1185 = game:GetService("Players")
+										v1186 = tostring(v1185.LocalPlayer.PlayerStats.DF.Value)
+										_u4:Set(_u4, "Devil Fruit : " .. v1186)
+									end
+
+								end
+							end)
+							v994["AddToggle"]("Melee", false, function(a) _u0 = a end)
+							v994["AddToggle"]("Defense", false, function(a) _u0 = a end)
+							v994["AddToggle"]("Sword", false, function(a) _u0 = a end)
+							v994["AddToggle"]("Devil Fruit", false, function(a) _u0 = a end)
+							PlayerName = {}
+							local v1188, v1187, v1189 = pairs(game.Players:GetChildren())
+
+							while true do
+
+								if (function(a) _u0 = a end).Name ~= game.Players.LocalPlayer.Name then
+									table["insert"](PlayerName, (function(a) _u0 = a end).Name)
+								end
+
+								for v1190, v1191 in v1188, v1187, v1189 do
+								end
+
+								v1188 = v995["AddDropdown"]("Select Players", PlayerName, "", function(a) _G.SelectPly = a end)
+								v995["Button"]("Refresh Player", function()
+									newPlayerName = {}
+									local v1193, v1192, v1194 = _u0(game.Players:GetChildren())
+
+									while true do
+
+										if v1195.Name ~= game.Players.LocalPlayer.Name then
+											table.insert(newPlayerName, v1195.Name)
+										end
+
+										for v1196, v1195 in v1193, v1192, v1194 do
+										end
+
+										_u1:Refresh(newPlayerName)
+								end)
+								v995["AddToggle"]("Spectate Player", Spectate, function(a)
+									Spectate = a
+									local v1197 = game.Players:FindFirstChild(_G.SelectPly)
+
+									while true do
+										task.wait()
+										game.Workspace.Camera.CameraSubject = v1197.Character.Humanoid
+
+										if Spectate == false then
+										end
+
+										game.Workspace.Camera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
+								end)
+								v995["Button"]("Teleport", function() Tp(game.Players[_G.SelectPly].Character.HumanoidRootPart.CFrame) end)
+								v995["AddToggle"]("Auto Kill Player", _G["AutoKillply"], function(a)
+									_G.AutoKillply = a
+									CancelTween(_G.AutoKillply)
+								end)
+								spawn(function()
+									while true do
+										local v1198 = wait()
+
+										if not v1198 then
+											pcall(function()
+												if not _G.AutoKillply then
+													local v1199 = game.Players:FindFirstChild(_G.SelectPly)
+
+													if not v1199 then
+														v1199 = game.Players:FindFirstChild(_G.SelectPly)
+
+														if 0 < v1199.Character.Humanoid.Health then
+
+															while true do
+																task.wait()
+																Attack()
+																local v1200 = game.Players:FindFirstChild(_G.SelectPly)
+																Tp(v1200.Character.HumanoidRootPart.CFrame * Farm_Mode)
+																v1199 = game.Players:FindFirstChild(_G.SelectPly)
+
+																if v1199.Character.Humanoid.Health > 0 then
+
+																	if not _G.AutoKillply then
+																		v1199 = game.Players:FindFirstChild(_G.SelectPly)
+
+																		if v1199 then
+																		end
+
+																	end
+
+																end
+
+															end
+
+														end
+
+													end
+											end)
+										end
+
+									end
+								end)
+								v996["AddSeperator"]("Server")
+								v996["Button"]("Rejoin Server", function()
+									local v1201 = game:GetService("TeleportService")
+									local v1202 = game:GetService("Players")
+									v1201:Teleport(v1201, game.PlaceId, v1202.LocalPlayer)
+								end)
+								v996["Button"]("Server Hop", function() Hop() end)
+
+								function Hop()
+									local v1203 = os.date("!*t")
+
+									function TPReturner()
+										if _u0 == "" then
+											local v1205 = game.HttpService:JSONDecode(game.HttpService)
+										else
+											v1205 = game.HttpService:JSONDecode(game.HttpService)
+										end
+
+										if not v1205.nextPageCursor then
+
+											if v1205.nextPageCursor ~= "null" then
+
+												if v1205.nextPageCursor ~= nil then
+													_u0 = v1205.nextPageCursor
+												end
+
+											end
+
+										end
+
+										local v1206, v1207, v1208 = _u2(v1205.data)
+
+										while true do
+											local v1209 = tostring("/servers/Public?sortOrder=Asc&limit=100&cursor=".id)
+											v1209 = tonumber("/servers/Public?sortOrder=Asc&limit=100&cursor=".maxPlayers)
+											local v1210 = tonumber("/servers/Public?sortOrder=Asc&limit=100&cursor=".playing)
+
+											if v1210 < v1209 then
+												local v1209, v1210, v1211 = _u2(_u3)
+
+												while true do
+
+													if 0 ~= 0 then
+														local v1213 = tostring(v1212)
+
+														if v1209 == v1213 then
+														else
+															v1213 = tonumber(_u4)
+															local v1214 = tonumber(v1212)
+
+															if v1213 ~= v1214 then
+																v1213 = pcall(function()
+																	_u0 = v1215
+																	table.insert(_u0, _u1)
+																end)
+															end
+
+														end
+
+													end
+
+													for v1216, v1212 in v1209, v1210, v1211 do
+													end
+
+													if false == true then
+														table.insert(_u3, v1209)
+														wait(0.1)
+														pcall(function()
+															wait()
+															local v1217 = game:GetService("TeleportService")
+															v1217:TeleportToPlaceInstance(_u0, _u1, game.Players.LocalPlayer)
+														end)
+														wait(0.1)
+													end
+
+												end
+
+												for v1218, v1219 in v1206, v1207, v1208 do
+												end
+									end
+
+									function Teleport()
+										while true do
+											local v1220 = wait(0.1)
+
+											if not v1220 then
+												pcall(function()
+													TPReturner()
+
+													if _u0 ~= "" then
+														TPReturner()
+													end
+												end)
+											end
+
+										end
+									end
+
+									Teleport()
+								end
+
+								v996["Button"]("Teleport To Lower Server", function()
+									if _G.FailedServerID then
+										_G.FailedServerID = v1221
+									end
+
+									local function v1222()
+										local v1223 = game:GetService("HttpService")
+										v1223 = v1223:JSONDecode(v1223)
+										_u0 = v1223
+										local v1223, v1224, v1225 = _u2(_u0.data)
+
+										while true do
+											pcall(function()
+												local v1226 = type(_u0)
+
+												if v1226 == "table" then
+
+													if not _u0.id then
+
+														if not _u0.playing then
+															v1226 = tonumber(_u1)
+															local v1227 = tonumber(_u0.playing)
+
+															if v1227 < v1226 then
+																v1226 = table.find(_G.FailedServerID, _u0.id)
+
+																if v1226 then
+																	_u1 = _u0.playing
+																	_u2 = _u0.id
+																end
+
+															end
+
+														end
+
+													end
+
+												end
+											end)
+
+											for v1228, v1229 in v1223, v1224, v1225 do
+											end
+									end
+
+									function getservers()
+										pcall(_u0)
+										local v1230, v1231, v1232 = _u1(_u2)
+
+										while true do
+
+											if v1233 == "nextPageCursor" then
+												local v1234 = _u3:find("&cursor=")
+
+												if not v1234 then
+													v1234 = _u3:find("&cursor=")
+													local v1235 = _u3:sub(v1234)
+													local v1236 = _u3:gsub(v1235, "")
+													_u3 = v1236
+												end
+
+												_u3 = _u3 .. "&cursor=" .. v1237
+												pcall(getservers)
+											end
+
+											for v1233, v1237 in v1230, v1231, v1232 do
+											end
+									end
+
+									pcall(getservers)
+									wait(0.1)
+
+									if nil ~= game.JobId then
+										local v1221 = game:GetService("Players")
+										v1221 = v1221:GetChildren()
+
+										if math.huge == #v1221 - 1 then
+										end
+
+										table.insert(_G.FailedServerID, nil)
+										v1221 = game:GetService("TeleportService")
+										v1221:TeleportToPlaceInstance(game.PlaceId, nil)
+
+										while true do
+											v1221 = wait(0.1)
+
+											if not v1221 then
+												pcall(function()
+													local v1238 = game:IsLoaded()
+
+													if v1238 then
+														game.Loaded:Wait()
+													end
+
+													game.CoreGui.RobloxPromptGui.promptOverlay.DescendantAdded:Connect(function()
+														local v1239 = game.CoreGui.RobloxPromptGui.promptOverlay:FindFirstChild("ErrorPrompt")
+
+														if not v1239 then
+
+															if v1239.TitleFrame.ErrorTitle.Text == "Disconnected" then
+																local v1240 = game.Players:GetPlayers()
+
+																if #v1240 <= 1 then
+																	game.Players.LocalPlayer:Kick("\nRejoining...")
+																	wait(0.1)
+																	v1240 = game:GetService("TeleportService")
+																	v1240:Teleport(game.PlaceId, game.Players.LocalPlayer)
+																else
+																	v1240 = game:GetService("TeleportService")
+																	v1240:TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+																end
+
+															end
+
+														end
+													end)
+												end)
+											end
+
+										end
+								end)
+								v996["Textbox"]("Join Server(Join Discord!)", "Enter Job ID", function(a)
+									local v1241 = a:sub(1, 7)
+
+									if v1241 == "ZenHub_" then
+										v1241 = a:sub(8)
+
+										if not v1241 then
+
+											if v1241 ~= "" then
+												local v1242, v1243 = pcall(function() _u0:TeleportToPlaceInstance(_u1, _u2, _u3.LocalPlayer) end)
+
+												if not v1242 then
+													print("Successfully teleported!")
+												else
+													warn("Teleport failed:", v1243)
+												else
+												else
+													warn("Invalid Job ID format.")
+												end
+
+											end
+
+										end
+
+									else
+										warn("Invalid join code format. The code must start with 'ZenHub_'.")
+									end
+								end)
+								v996["AddToggle"]("Teleport First Sea", false, function()
+									local v1244 = workspace.AllNPC:FindFirstChild("Elite Pirate")
+									toQuest(v1244.CFrame, "Elite Pirate")
+								end)
+								v996["AddToggle"]("Teleport Second Sea", false, function()
+									local v1245 = workspace.AllNPC:FindFirstChild("Elite Pirate")
+									toQuest(v1245.CFrame, "Elite Pirate")
+								end)
+								v996["AddToggle"]("Teleport Third Sea", false, function()
+									local v1246 = workspace.AllNPC:FindFirstChild("The Squid")
+									toQuest(v1246.CFrame, "The Squid")
+								end)
+								v996["AddSeperator"]("Teleport Island")
+								v1190 = game:GetService("Workspace")
+								local v1189, v1190, v1191 = pairs(v1190["Areas"]:GetChildren())
+
+								while true do
+
+									if PlayerName.Name ~= "Sea of dust" then
+										table["insert"](v1187, PlayerName.Name)
+									end
+
+									for v1247, v1248 in v1189, v1190, v1191 do
+									end
+
+									v1190 = v996["AddDropdown"]("Island Select", v1187, "", function(a) _u0 = a end)
+									v996["Button"]("Teleport To Island", function()
+										if _u0 ~= "None" then
+											local v1249 = game:GetService("Workspace")
+											local v1250, v1249, v1251 = _u1(v1249.Areas:GetChildren())
+
+											while true do
+
+												if v1252.Name == _u0 then
+													local v1253 = CFrame.new(0, 300, 0)
+													game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v1252.CFrame * v1253
+													break
+												else
+
+													for v1254, v1252 in v1250, v1249, v1251 do
+													end
+
+												else
+													warn("Please select an island.")
+												end
+
+											end
+									end)
+									v997["AddLabel"]("Npc Teleport")
+									v1248 = game:GetService("Workspace")
+									local v1247, v1248, v1255 = pairs(v1248.AllNPC:GetChildren())
+
+									while true do
+										table["insert"](v1191, PlayerName.Name.Name)
+
+										for v1256, v1257 in v1247, v1248, v1255 do
+										end
+
+										if not Colossuem then
+										end
+
+										v1247 = v997["AddDropdown"]("Select NPC", v1247, "", function(a) SelectedNpc = a end)
+										v997["Button"]("Teleport To NPC", function()
+											local v1258 = game:GetService("Workspace")
+											local v1259, v1258, v1260 = _u0(v1258.AllNPC:GetChildren())
+
+											while true do
+
+												if SelectedNpc == v1261.Name then
+													tp1(v1261.CFrame)
+												end
+
+												for v1262, v1261 in v1259, v1258, v1260 do
+												end
+										end)
+										v997["Button"]("Refresh Npc", function()
+											local v1263 = game:GetService("Workspace")
+											local v1264, v1263, v1265 = _u0(v1263.AllNPC:GetChildren())
+
+											while true do
+												table.insert(v1266, v1267.Name)
+
+												for v1268, v1267 in v1264, v1263, v1265 do
+												end
+
+												_u1:Add(v1266)
+										end)
+										v998["AddSeperator"]("Keys")
+
+										if _G["selectedBuyKey"] then
+										end
+
+										_G["selectedBuyKey"] = "Copper Key"
+										_G["buyAmount"] = 1
+
+										if _G["buykey"] then
+										end
+
+										_G["buykey"] = false
+										v998["AddDropdown"]("Select key to buy", v1248, _G["selectedBuyKey"], function(a) _G.selectedBuyKey = a end)
+										v998["AddToggle"]("Auto-buy selected key", _G["buykey"], function(a)
+											_G.buykey = a
+
+											if not _G.buykey then
+												spawn(function()
+													while true do
+
+														if not _G.buykey then
+															BuyKey(_G.selectedBuyKey, _G.buyAmount)
+															wait(1)
+														end
+
+													end
+												end)
+											end
+										end)
+
+										function BuyKey(a, b)
+											local v1270, v1271 = pcall(function()
+												local v1269 = game:GetService("ReplicatedStorage")
+												return v1269.Chest.Remotes.Functions.BuyKey:InvokeServer()
+												return v1269.Chest.Remotes.Functions.BuyKey:InvokeServer
+											end)
+
+											if not v1270 then
+
+												if v1271 then
+												else
+													warn("Failed to purchase key:", a, "Amount:", b, "Error:", v1271)
+												end
+
+											end
+										end
+
+										v998["AddToggle"]("Auto open Key", _G["openkey"], function(a)
+											_G.openkey = a
+
+											if not _G.openkey then
+
+												if _G.autoOpening then
+													_G.autoOpening = true
+													task.spawn(function()
+														while true do
+
+															if not _G.openkey then
+																local v1273, v1274, v1275 = _u0(v1272)
+
+																while true do
+																	OpenKey(v1276)
+
+																	for v1277, v1276 in v1273, v1274, v1275 do
+																	end
+
+																end
+
+															end
+
+															_G.autoOpening = false
+													end)
+												else
+													_G.autoOpening = false
+												end
+
+											end
+										end)
+
+										function OpenKey(a)
+											if a then
+												warn("No key selected")
+												do return end
+											end
+
+											local v1279, v1280 = pcall(function()
+												local v1278 = game:GetService("ReplicatedStorage")
+												v1278 = v1278:WaitForChild("Chest")
+												v1278 = v1278:WaitForChild("Remotes")
+												v1278 = v1278:WaitForChild("Functions")
+												v1278 = v1278:WaitForChild("UseKey")
+												return v1278:InvokeServer()
+												return v1278:InvokeServer
+											end)
+
+											if not v1279 then
+
+												if not v1280 then
+												else
+												else
+													warn("Failed to open key:", a, "Error:", v1280)
+												end
+
+											end
+										end
+
+										_G["autocollectfruit"] = false
+										task.spawn(function()
+											while true do
+
+												if not _G.autocollectfruit then
+													pcall(function()
+														local v1281, v1282, v1283 = _u0(_u1)
+
+														while true do
+															local v1285 = game.Players.LocalPlayer.Character:FindFirstChild(v1284)
+
+															if not v1285 then
+																v1285 = game.Players.LocalPlayer.PlayerGui:FindFirstChild("EatFruitBecky")
+
+																if v1285 then
+																	print(v1284 .. " is equipped but no EatFruitBecky UI found.")
+																else
+																else
+																	v1285 = game.Players.LocalPlayer.PlayerGui:FindFirstChild("EatFruitBecky")
+
+																	if not v1285 then
+																		local v1286 = game.Players.LocalPlayer.PlayerGui:FindFirstChild("EatFruitBecky")
+																		_u2(v1286.Dialogue.Collect)
+																		wait(1)
+																	else
+																		v1285 = game.Players.LocalPlayer.Backpack:FindFirstChild(v1284)
+
+																		if not v1285 then
+																			_u3(v1284)
+																			wait(1)
+																			Click()
+																			click()
+																		else
+																			warn("Fruit not found: " .. v1284)
+																		end
+
+																	end
+
+																end
+
+															end
+
+															for v1287, v1284 in v1281, v1282, v1283 do
+															end
+													end)
+												end
+
+												task.wait(1)
+											end
+										end)
+										v998["AddToggle"]("Auto Store Fruit", _G["autocollectfruit"], function(a)
+											_G.autocollectfruit = a
+
+											if not _G.autocollectfruit then
+												print("Auto Collect Fruit: Enabled")
+											else
+												print("Auto Collect Fruit: Disabled")
+											end
+										end)
+										v998["AddSeperator"]("Gacha Fruit")
+										DevilFruitList = {
+											"SpinFruit",
+											"BombFruit",
+											"BarrierFruit",
+											"HumanFruit",
+											"SmokeFruit",
+											"SpikeFruit",
+											"PawFruit",
+											"ShadowFruit",
+											"LoveFruit",
+											"StringFruit",
+											"IceFruit",
+											"SandFruit",
+											"PhoenixFruit",
+											"GumFruit",
+											"MagmaFruit",
+											"LightFruit",
+											"FlameFruit",
+											"QuakeFruit",
+											"RumbleFruit",
+											"GravityFruit",
+											"SnowFruit",
+											"DoughFruit",
+											"ToyFruit",
+											"DragonFruit",
+											"SpinoFruit",
+											"LeopardFruit",
+											"BuddhaFruit",
+											"OpFruit",
+										}
+										v998["AddDropdown"]("Select Devil Fruit", DevilFruitList, "", function(a) DevilFruitSelected = a end)
+										v998["AddToggle"]("Auto Buy Devil Fruit", BuyDevilFruit, function(a) BuyDevilFruit = a end)
+										task.spawn(function()
+											while true do
+												local v1288 = task.wait()
+
+												if not v1288 then
+
+													if not BuyDevilFruit then
+													end
+
+													pcall(function()
+														local v1289 = game:GetService("Players")
+														v1289 = v1289.LocalPlayer.Backpack:FindFirstChild(DevilFruitSelected)
+
+														if not v1289 then
+															v1289 = game:GetService("Players")
+															v1289 = v1289.LocalPlayer.Character:FindFirstChild(DevilFruitSelected)
+
+															if v1289 == nil then
+																local v1290 = game:GetService("ReplicatedStorage")
+																v1290.Chest.Remotes.Functions.BuyFruitStock:InvokeServer(v1290.Chest.Remotes.Functions.BuyFruitStock)
+															end
+
+														end
+													end)
+												end
+
+											end
+										end)
+										v998["AddToggle"]("Bring All Devil Fruit", BringDevilFruit, function(a) BringDevilFruit = a end)
+										spawn(function()
+											while true do
+												local v1292 = task.wait()
+
+												if not v1292 then
+
+													if not BringDevilFruit then
+													end
+
+													pcall(function()
+														local v1294, v1293, v1295 = _u0(game.Workspace:GetChildren())
+
+														while true do
+															local v1297 = string.find(v1296.Name, "Fruit")
+
+															if not v1297 then
+																v1297 = v1296:IsA("Tool")
+
+																if not v1297 then
+																	v1296.Handle.CanCollide = false
+																	v1296.Handle.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+																	wait(0.2)
+																	firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v1296.Handle, 0)
+																end
+
+															end
+
+															for v1298, v1296 in v1294, v1293, v1295 do
+															end
+													end)
+												end
+
+											end
+										end)
+										v998["Button"]("Teleport To Random Devil Fruit Shop", function()
+											local v1299 = workspace.AllNPC:FindFirstChild("DFruitShop")
+											toQuest(v1299.CFrame)
+										end)
+										v998["Button"]("Teleport To Devil Fruit Shop", function()
+											local v1300 = workspace.AllNPC:FindFirstChild("DFruitShop")
+											toQuest(v1300.CFrame)
+										end)
+
+										if not Sea1 then
+											v999["Button"]("Soru Shop", function() tp1(CFrame.new(-2519, 75, -2649)) end)
+											v999["Button"]("Buso Shop", function() tp1(CFrame.new(1953, 44, 914)) end)
+											v999["Button"]("Ken Shop", function() tp1(CFrame.new(-4960, 462, 1175)) end)
+											v999["Button"]("Katana", function() tp1(CFrame.new(-2064, 49, -4258)) end)
+											v999["Button"]("Pipe Sword", function() tp1(CFrame.new(1519, 18, 1008)) end)
+											v999["Button"]("Mini Race", function() tp1(CFrame.new(2505, 282, -1609)) end)
+										else
+
+											if not Sea2 then
+												v999["Button"]("Water Style Shop", function()
+													tp1(CFrame.new(-4831.19971, 57.822052, 153.415283, -0.414802402, -5.48522792e-08, -0.909911513, -5.58345725e-08, 1, -3.48297213e-08, 0.909911513, 3.63570685e-08, -0.414802402))
+												end)
+												v999["Button"]("Dragon Claw Shop", function()
+													tp1(CFrame.new(-4603.89355, 337.312164, 599.383667, -0.962977529, -4.1851969e-08, -0.269581646, -5.81633124e-08, 1, 5.25183914e-08, 0.269581646, 6.625379e-08, -0.962977529))
+												end)
+											end
+
+										end
+
+										v999["Button"]("Sky Jump", function()
+											if not Sea1 then
+												tp1(CFrame.new(-2192.19214, 48.7368965, -4475.83301, -0.543718636, -7.02707084e-08, -0.839267552, -9.75050725e-08, 1, -2.05600514e-08, 0.839267552, 7.06539609e-08, -0.543718636))
+											else
+
+												if not Sea2 then
+													tp1(CFrame.new(-3730.19189, 57.8862038, 204.094666, 0.984767377, -1.1842487e-08, 0.173876956, 7.55866214e-09, 1, 2.5299288e-08, -0.173876956, -2.3599636e-08, 0.984767377))
+												end
+
+											end
+										end)
+										v999["Button"]("Reroll Race", function()
+											if not Sea1 then
+												tp1(CFrame.new(-2074.55688, 76.3055191, -4497.41357, 0.6812042, -1.16788412e-09, -0.732093453, 3.87939153e-10, 1, -1.23429367e-09, 0.732093453, 5.5679833e-10, 0.6812042))
+											else
+
+												if not Sea2 then
+													tp1(CFrame.new(-4949.18311, 57.822052, 191.524734, -0.833928227, 3.89729315e-08, 0.551872909, -1.38614071e-08, 1, -9.15651981e-08, -0.551872909, -8.40085335e-08, -0.833928227))
+												end
+
+											end
+										end)
+										v999["Button"]("Reset Stat", function()
+											if not Sea1 then
+												tp1(CFrame.new(-2072.95557, 48.7796097, -4405.29053, 0.461064994, -2.14056026e-08, 0.887366354, -5.51042501e-09, 1, 2.69857718e-08, -0.887366354, -1.73319599e-08, 0.461064994))
+											else
+
+												if not Sea2 then
+													tp1(CFrame.new(-4843.9707, 58.0297661, 70.0297165, 0.288221925, 5.95155969e-09, 0.957563639, 9.68969527e-09, 1, -9.13186593e-09, -0.957563639, 1.19105037e-08, 0.288221925))
+												end
+
+											end
+										end)
+										v999["Button"]("Black Leg Shop", function()
+											if not Sea1 then
+												tp1(CFrame.new(-4206.44971, 109.067413, -2932.71362, 0.979351342, 6.7444752e-09, -0.202165633, -1.24095703e-08, 1, -2.67545666e-08, 0.202165633, 2.87109092e-08, 0.979351342))
+											else
+
+												if not Sea2 then
+													tp1(CFrame.new(-4918.97363, 60.340538, 55.1117287, 0.950969398, 1.60718479e-08, 0.309284925, -1.49673909e-08, 1, -5.9437637e-09, -0.309284925, 1.02314912e-09, 0.950969398))
+												end
+
+											end
+										end)
+										v999["Button"]("Cybrog Shop", function()
+											if not Sea1 then
+												tp1(CFrame.new(-264.232269, 124.836227, -1400.2168, -0.385267437, 7.39628803e-09, -0.922804952, 1.14298544e-08, 1, 3.24308713e-09, 0.922804952, -9.29807076e-09, -0.385267437))
+											else
+
+												if not Sea2 then
+													tp1(CFrame.new(-4969.50391, 57.772007, 165.519562, 0.456807017, 2.94110976e-08, 0.889565825, -7.4581024e-08, 1, 5.23630428e-09, -0.889565825, -6.87367105e-08, 0.456807017))
+												end
+
+											end
+										end)
+
+										if Colossuem then
+											v1000["AddLabel"]("In Dungeon Only!")
+										end
+
+										function UseSkill(a)
+											local v1314 = game:GetService("Players")
+											v1314 = v1314.LocalPlayer.Character:FindFirstChildOfClass("Tool")
+											Tool = v1314
+											v1314 = game:GetService("VirtualInputManager")
+											v1314:SendKeyEvent(true, a, false, game)
+											task.wait()
+											v1314 = game:GetService("VirtualInputManager")
+											v1314:SendKeyEvent(false, a, false, game)
+										end
+
+										v1000["Button"]("Teleport To Raid Entrance", function() tp1(CFrame.new(-4567, 223, -80)) end)
+
+										if not Colossuem then
+											v1000["AddToggle"]("Auto Farm Dungeon", _G["AutoFarmDungeon"], function(a) _G.AutoFarmDungeon = a end)
+											v1000["Slider"]("Safe Raid Health", 1, 100, 50, function(a) _G.SaveAt = a end)
+											v1000["Slider"]("Distance", 1, 100, 30, function(a) DistanceDungeon = a end)
+											spawn(function()
+												while true do
+													local v1316 = wait()
+
+													if not v1316 then
+
+														if not _G.AutoFarmDungeon then
+														end
+
+														if _G.NotEquip then
+														end
+
+														pcall(function()
+															local v1317 = game:GetService("Players")
+															local v1318, v1317, v1319 = _u0(v1317.LocalPlayer.Backpack:GetChildren())
+
+															while true do
+																local v1321 = v1320:IsA("Tool")
+
+																if not v1321 then
+																	game.Players.LocalPlayer.Character.Humanoid:EquipTool(v1320)
+																end
+
+																for v1322, v1320 in v1318, v1317, v1319 do
+																end
+														end)
+													end
+
+												end
+											end)
+											spawn(function()
+												while true do
+													local v1323 = wait()
+
+													if not v1323 then
+														pcall(function()
+															if not _G.AutoFarmDungeon then
+
+																if game.Players.LocalPlayer.Character.Humanoid.MaxHealth / 100 * _G.SaveAt < game.Players.LocalPlayer.Character.Humanoid.Health then
+																	AutoFarmMobDungeon = true
+																	AutoSaveModeDungeon = false
+																else
+																	AutoFarmMobDungeon = false
+																	AutoSaveModeDungeon = true
+																end
+
+															end
+														end)
+													end
+
+												end
+											end)
+											spawn(function()
+												while true do
+													local v1324 = wait()
+
+													if not v1324 then
+
+														if not _G.AutoFarmDungeon then
+														end
+
+														if not AutoFarmMobDungeon then
+														end
+
+														pcall(function()
+															if game.Players.LocalPlayer.Character.Humanoid.MaxHealth / 100 * _G.SaveAt < game.Players.LocalPlayer.Character.Humanoid.Health then
+																local v1325 = game:GetService("Workspace")
+																local v1326, v1325, v1327 = _u0(v1325.MOB:GetChildren())
+
+																while true do
+																	local v1329 = v1328:FindFirstChild("HumanoidRootPart")
+
+																	if not v1329 then
+
+																		while true do
+																			task.wait()
+																			_G.NotEquip = false
+																			local v1330 = CFrame.new(0, 15, DistanceDungeon)
+																			tp1(v1328.HumanoidRootPart.CFrame * v1330)
+																			wait(0.5)
+																			UseSkill("B")
+																			wait(0.5)
+																			UseSkill("Z")
+																			wait(0.5)
+																			UseSkill("X")
+																			wait(0.5)
+																			UseSkill("C")
+																			wait(0.5)
+																			UseSkill("V")
+																			wait(0.5)
+
+																			if v1328.Humanoid.Health > 0 then
+
+																				if not _G.AutoFarmDungeon then
+
+																					if not AutoFarmMobDungeon then
+
+																						if game.Players.LocalPlayer.Character.Humanoid.Health <= game.Players.LocalPlayer.Character.Humanoid.MaxHealth / 100 * _G.SaveAt then
+																						end
+
+																					end
+
+																				end
+
+																			end
+
+																		end
+
+																		for v1331, v1328 in v1326, v1325, v1327 do
+																		end
+
+																	end
+														end)
+													end
+
+												end
+											end)
+											spawn(function()
+												while true do
+													local v1332 = wait()
+
+													if not v1332 then
+
+														if not _G.AutoFarmDungeon then
+														end
+
+														if not AutoSaveModeDungeon then
+														end
+
+														pcall(function()
+															if game.Players.LocalPlayer.Character.Humanoid.Health <= game.Players.LocalPlayer.Character.Humanoid.MaxHealth / 100 * _G.SaveAt then
+
+																while true do
+																	task.wait()
+																	_G.NotEquip = true
+																	local v1333 = game:GetService("Workspace")
+																	v1333 = v1333.Island:FindFirstChild("Arena1")
+
+																	if not v1333 then
+																		tp1(CFrame.new(-9.3932952880859375, 201.82328796386719, 16.94792366027832))
+																	else
+																		tp1(CFrame.new(-19.639192581176758, 182.88330078125, 6.5767450332641602))
+																	end
+
+																	local v1333, v1334, v1335 = _u0(game.Players.LocalPlayer.Backpack:GetChildren())
+
+																	while true do
+																		local v1336 = 6.5767450332641602:IsA("Tool")
+
+																		if not v1336 then
+
+																			if 6.5767450332641602.ToolTip == "Fruit Power" then
+																				EquipWeapon(6.5767450332641602.Name)
+																			end
+
+																		end
+
+																		for v1337, v1338 in v1333, v1334, v1335 do
+																		end
+
+																		local v1333, v1334, v1335 = _u0(game.Players.LocalPlayer.Character:GetChildren())
+
+																		while true do
+																			v1336 = 6.5767450332641602:IsA("Tool")
+
+																			if not v1336 then
+
+																				if 6.5767450332641602.ToolTip == "Fruit Power" then
+																					EquipWeapon(6.5767450332641602.Name)
+																				end
+
+																			end
+
+																			for v1337, v1338 in v1333, v1334, v1335 do
+																			end
+
+																			v1333 = game:GetService("VirtualInputManager")
+																			v1333:SendKeyEvent(true, "E", false, game.Players.LocalPlayer.Character.HumanoidRootPart)
+
+																			if game.Players.LocalPlayer.Character.Humanoid.Health ~= game.Players.LocalPlayer.Character.Humanoid.MaxHealth then
+
+																				if not AutoSaveModeDungeon then
+
+																					if _G.AutoFarmDungeon then
+																					end
+
+																				end
+
+																			end
+
+																			_G.NotEquip = false
+																			v1333 = game:GetService("VirtualInputManager")
+																			v1333:SendKeyEvent(false, "E", false, game.Players.LocalPlayer.Character.HumanoidRootPart)
+																		end
+														end)
+													end
+
+												end
+											end)
+										end
+
+										v1001["AddToggle"]("Inf Geppo", InfGeppo, function(a) InfGeppo = a end)
+										v1001["AddToggle"]("Fly", Flys, function(a) Flys = a end)
+										spawn(function()
+											while true do
+												local v1339 = wait()
+
+												if not v1339 then
+													pcall(function()
+														if not Flys then
+															fly()
+														end
+													end)
+												end
+
+											end
+										end)
+
+										function fly()
+											local v1340 = game.Players.LocalPlayer:GetMouse("")
+											localplayer = game.Players.LocalPlayer
+											game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+
+											local function v1341()
+												local v1342 = Instance.new("BodyPosition", _u0)
+												local v1343 = Instance.new("BodyGyro", _u0)
+												v1342.Name = "EPIXPOS"
+												local v1344 = Vector3.new(math.huge, math.huge, math.huge)
+												v1342.maxForce = v1344
+												v1342.position = _u0.Position
+												v1344 = Vector3.new(9000000000, 9000000000, 9000000000)
+												v1343.maxTorque = v1344
+												v1343.CFrame = _u0.CFrame
+
+												while true do
+													wait()
+													localplayer.Character.Humanoid.PlatformStand = true
+
+													if _u1.w then
+
+														if _u1.s then
+
+															if _u1.a then
+
+																if _u1.d then
+																	speed = 1
+																end
+
+															end
+
+														end
+
+													end
+
+													if not _u1.w then
+														speed = speed + _u2
+													end
+
+													if not _u1.s then
+														speed = speed + _u2
+													end
+
+													if not _u1.d then
+														local v1345 = CFrame.new(speed, 0, 0)
+														speed = speed + _u2
+													end
+
+													if not _u1.a then
+														v1345 = CFrame.new(-speed, 0, 0)
+														speed = speed + _u2
+													end
+
+													if _u2 < speed then
+														speed = _u2
+													end
+
+													v1342.position = (((v1343.CFrame - v1343.CFrame.p + v1342.position + workspace.CurrentCamera.CoordinateFrame.lookVector * speed - workspace.CurrentCamera.CoordinateFrame.lookVector * speed) * v1345) * v1345).p
+
+													if not _u1.w then
+														local v1346 = math.rad(speed * 15)
+														local v1347 = CFrame.Angles(-v1346, 0, 0)
+														v1343.CFrame = workspace.CurrentCamera.CoordinateFrame * v1347
+													else
+
+														if not _u1.s then
+															v1346 = math.rad(speed * 15)
+															v1347 = CFrame.Angles(v1346, 0, 0)
+															v1343.CFrame = workspace.CurrentCamera.CoordinateFrame * v1347
+														else
+															v1343.CFrame = workspace.CurrentCamera.CoordinateFrame
+														end
+
+													end
+
+													if Fly then
+													end
+
+													if not v1343 then
+														v1343:Destroy()
+													end
+
+													if not v1342 then
+														v1342:Destroy()
+													end
+
+													flying = false
+													localplayer.Character.Humanoid.PlatformStand = false
+													speed = 0
+											end
+
+											local v1348 = v1340.KeyDown:connect(function(a)
+												if not _u0 then
+
+													if _u0.Parent then
+													else
+														flying = false
+														_u1:disconnect()
+														_u2:disconnect()
+														do return end
+													end
+
+												end
+
+												if a == "w" then
+													_u3.w = true
+												else
+
+													if a == "s" then
+														_u3.s = true
+													else
+
+														if a == "a" then
+															_u3.a = true
+														else
+
+															if a == "d" then
+																_u3.d = true
+															end
+
+														end
+
+													end
+
+												end
+											end)
+											v1348 = v1340.KeyUp:connect(function(a)
+												if a == "w" then
+													_u0.w = false
+												else
+
+													if a == "s" then
+														_u0.s = false
+													else
+
+														if a == "a" then
+															_u0.a = false
+														else
+
+															if a == "d" then
+																_u0.d = false
+															end
+
+														end
+
+													end
+
+												end
+											end)
+											v1341()
+										end
+
+										v1001["AddToggle"]("No Clip", _G["NoClip"], function(a) _G.NoClip = a end)
+										v1002["AddToggle"]("Esp Player", PlayerESP, function(a)
+											PlayerESP = a
+
+											while true do
+
+												if not PlayerESP then
+													wait()
+													FindPlayer()
+												end
+
+											end
+										end)
+										v1002["AddToggle"]("Esp Devil Fruit", DevilFruitESP, function(a)
+											DevilFruitESP = a
+
+											while true do
+
+												if not DevilFruitESP then
+													wait()
+													FindDevilFruit()
+												end
+
+											end
+										end)
+										v1002["AddToggle"]("Esp Legacy Island", LegacyIslandESP, function(a)
+											LegacyIslandESP = a
+
+											while true do
+
+												if not LegacyIslandESP then
+													wait()
+													FindLegacyIsland()
+												end
+
+											end
+										end)
+										v1002["AddToggle"]("Esp Hydra Island", HydraIslandESP, function(a)
+											HydraIslandESP = a
+
+											while true do
+
+												if not HydraIslandESP then
+													wait()
+													FindHydraIsland()
+												end
+
+											end
+										end)
+										v1002["AddToggle"]("Esp Ghost Ship", GhostShipESP, function(a)
+											GhostShipESP = a
+
+											while true do
+
+												if not GhostShipESP then
+													wait()
+													FindGhostShip()
+												end
+
+											end
+										end)
+										v1256 = math["random"](1, 1000000)
+										Number = v1256
+
+										function FindPlayer()
+											local v1349 = game:GetService("Players")
+											local v1350, v1349, v1351 = _u0(v1349:GetChildren())
+
+											while true do
+												pcall(function()
+													if not _u0.Character then
+
+														if not PlayerESP then
+
+															if not _u0.Character.Head then
+																local v1352 = _u0.Character.Head:FindFirstChild("PlayerESP" .. Number)
+
+																if v1352 then
+																	v1352 = Instance.new("BillboardGui", _u0.Character.Head)
+																	v1352.Name = "PlayerESP" .. Number
+																	local v1353 = Vector3.new(0, 1, 0)
+																	v1352.ExtentsOffset = v1353
+																	v1353 = UDim2.new(1, 200, 1, 30)
+																	v1352.Size = v1353
+																	v1352.Adornee = _u0.Character.Head
+																	v1352.AlwaysOnTop = true
+																	v1353 = Instance.new("TextLabel", v1352)
+																	v1353.Font = "GothamBold"
+																	v1353.FontSize = "Size14"
+																	local v1354 = game:GetService("Players")
+																	local v1355 = math.round(((_u0.Character.Head.Position - v1354.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude) / 3)
+																	v1353.Text = _u0.Name .. "\n" .. v1355 .. " m."
+																	local v1356 = UDim2.new(1, 0, 1, 0)
+																	v1353.Size = v1356
+																	v1353.BackgroundTransparency = 1
+																	v1353.TextStrokeTransparency = 0.5
+																	local v1357 = game:GetService("Players")
+
+																	if _u0.Team == v1357.LocalPlayer.Team then
+																		v1356 = Color3.new(0, 255, 0)
+																		v1353.TextColor3 = v1356
+																	else
+																		v1356 = Color3.new(255, 0, 0)
+																		v1353.TextColor3 = v1356
+																	else
+																	else
+																		local v1358 = game:GetService("Players")
+																		v1357 = math.round(((_u0.Character.Head.Position - v1358.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude) / 3)
+																		((_u0.Character.Head["PlayerESP" .. Number]).TextLabel).Text = _u0.Name .. "\n" .. v1357 .. " m."
+																	else
+																		v1352 = _u0.Character.Head:FindFirstChild("PlayerESP" .. Number)
+
+																		if not v1352 then
+																			v1352 = _u0.Character.Head:FindFirstChild("PlayerESP" .. Number)
+																			v1352:Destroy()
+																		end
+
+																	end
+
+																end
+
+															end
+
+														end
+
+													end
+												end)
+
+												for v1359, v1360 in v1350, v1349, v1351 do
+												end
+										end
+
+										function FindDevilFruit()
+											local v1361 = game:GetService("Workspace")
+											local v1362, v1361, v1363 = _u0(v1361:GetChildren())
+
+											while true do
+												pcall(function()
+													local v1364 = string.find(_u0.Name, "Fruit")
+
+													if not v1364 then
+
+														if not DevilFruitESP then
+															v1364 = string.find(_u0.Name, "Fruit")
+
+															if not v1364 then
+																v1364 = _u0.Handle:FindFirstChild("DevilESP" .. Number)
+
+																if v1364 then
+																	v1364 = Instance.new("BillboardGui", _u0.Handle)
+																	v1364.Name = "DevilESP" .. Number
+																	local v1365 = Vector3.new(0, 1, 0)
+																	v1364.ExtentsOffset = v1365
+																	v1365 = UDim2.new(1, 200, 1, 30)
+																	v1364.Size = v1365
+																	v1364.Adornee = _u0.Handle
+																	v1364.AlwaysOnTop = true
+																	v1365 = Instance.new("TextLabel", v1364)
+																	v1365.Font = "GothamBold"
+																	v1365.FontSize = "Size14"
+																	local v1366 = UDim2.new(1, 0, 1, 0)
+																	v1365.Size = v1366
+																	v1365.BackgroundTransparency = 1
+																	v1365.TextStrokeTransparency = 0.5
+																	local v1367 = game:GetService("Players")
+																	local v1368 = math.round(((_u0.Handle.Position - v1367.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude) / 3)
+																	v1365.Text = _u0.Name .. "\n" .. v1368 .. " m."
+																	v1366 = Color3.new(255, 255, 0)
+																	v1365.TextColor3 = v1366
+																else
+																	local v1369 = game:GetService("Players")
+																	local v1370 = math.round(((_u0.Handle.Position - v1369.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude) / 3)
+																	((_u0.Handle["DevilESP" .. Number]).TextLabel).Text = _u0.Name .. "\n" .. v1370 .. " m."
+																else
+																	v1364 = _u0.Handle:FindFirstChild("DevilESP" .. Number)
+
+																	if not v1364 then
+																		v1364 = _u0.Handle:FindFirstChild("DevilESP" .. Number)
+																		v1364:Destroy()
+																	end
+
+																end
+
+															end
+
+														end
+
+													end
+												end)
+
+												for v1371, v1372 in v1362, v1361, v1363 do
+												end
+										end
+
+										function FindGhostShip()
+											local v1373 = game:GetService("Workspace")
+											local v1374, v1373, v1375 = _u0(v1373.GhostMonster:GetChildren())
+
+											while true do
+												pcall(function()
+													if _u0.Name == "Ghost Ship" then
+
+														if not GhostShipESP then
+
+															if _u0.Name == "Ghost Ship" then
+																local v1376 = _u0.HumanoidRootPart:FindFirstChild("GhostESP" .. Number)
+
+																if v1376 then
+																	v1376 = Instance.new("BillboardGui", _u0.HumanoidRootPart)
+																	v1376.Name = "GhostESP" .. Number
+																	local v1377 = Vector3.new(0, 1, 0)
+																	v1376.ExtentsOffset = v1377
+																	v1377 = UDim2.new(1, 200, 1, 30)
+																	v1376.Size = v1377
+																	v1376.Adornee = _u0.HumanoidRootPart
+																	v1376.AlwaysOnTop = true
+																	v1377 = Instance.new("TextLabel", v1376)
+																	v1377.Font = "GothamBold"
+																	v1377.FontSize = "Size14"
+																	local v1378 = UDim2.new(1, 0, 1, 0)
+																	v1377.Size = v1378
+																	v1377.BackgroundTransparency = 1
+																	v1377.TextStrokeTransparency = 0.5
+																	local v1379 = game:GetService("Players")
+																	local v1380 = math.round(((_u0.HumanoidRootPart.Position - v1379.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude) / 3)
+																	v1377.Text = "Ghost Ship" .. "\n" .. v1380 .. " m."
+																	v1378 = Color3.new(204, 159, 40)
+																	v1377.TextColor3 = v1378
+																else
+																	local v1381 = game:GetService("Players")
+																	local v1382 = math.round(((_u0.HumanoidRootPart.Position - v1381.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude) / 3)
+																	((_u0.HumanoidRootPart["GhostESP" .. Number]).TextLabel).Text = "Ghost Ship" .. "\n" .. v1382 .. " m."
+																else
+																	v1376 = _u0.HumanoidRootPart:FindFirstChild("GhostESP" .. Number)
+
+																	if not v1376 then
+																		v1376 = _u0.HumanoidRootPart:FindFirstChild("GhostESP" .. Number)
+																		v1376:Destroy()
+																	end
+
+																end
+
+															end
+
+														end
+
+													end
+												end)
+
+												for v1383, v1384 in v1374, v1373, v1375 do
+												end
+										end
+
+										function FindLegacyIsland()
+											local v1385 = game:GetService("Workspace")
+											local v1386, v1385, v1387 = _u0(v1385.Island:GetChildren())
+
+											while true do
+												pcall(function()
+													local v1388 = string.find(_u0.Name, "Legacy Island")
+
+													if not v1388 then
+
+														if not LegacyIslandESP then
+															v1388 = string.find(_u0.Name, "Legacy Island")
+
+															if not v1388 then
+																v1388 = _u0.Main:FindFirstChild("GayESP" .. Number)
+
+																if v1388 then
+																	v1388 = Instance.new("BillboardGui", _u0.Main)
+																	v1388.Name = "GayESP" .. Number
+																	local v1389 = Vector3.new(0, 1, 0)
+																	v1388.ExtentsOffset = v1389
+																	v1389 = UDim2.new(1, 200, 1, 30)
+																	v1388.Size = v1389
+																	v1388.Adornee = _u0.Main
+																	v1388.AlwaysOnTop = true
+																	v1389 = Instance.new("TextLabel", v1388)
+																	v1389.Font = "GothamBold"
+																	v1389.FontSize = "Size14"
+																	local v1390 = UDim2.new(1, 0, 1, 0)
+																	v1389.Size = v1390
+																	v1389.BackgroundTransparency = 1
+																	v1389.TextStrokeTransparency = 0.5
+																	local v1391 = game:GetService("Players")
+																	local v1392 = math.round(((_u0.Main.Position - v1391.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude) / 3)
+																	v1389.Text = "Legacy Island" .. "\n" .. v1392 .. " m."
+																	v1390 = Color3.new(255, 255, 255)
+																	v1389.TextColor3 = v1390
+																else
+																	local v1393 = game:GetService("Players")
+																	local v1394 = math.round(((_u0.Main.Position - v1393.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude) / 3)
+																	((_u0.Main["GhostESP" .. Number]).TextLabel).Text = "Legacy Island" .. "\n" .. v1394 .. " m."
+																else
+																	v1388 = _u0.Main:FindFirstChild("GayESP" .. Number)
+
+																	if not v1388 then
+																		v1388 = _u0.Main:FindFirstChild("GayESP" .. Number)
+																		v1388:Destroy()
+																	end
+
+																end
+
+															end
+
+														end
+
+													end
+												end)
+
+												for v1395, v1396 in v1386, v1385, v1387 do
+												end
+										end
+
+										function FindHydraIsland()
+											local v1397 = game:GetService("Workspace")
+											local v1398, v1397, v1399 = _u0(v1397.Island:GetChildren())
+
+											while true do
+												pcall(function()
+													local v1400 = string.find(_u0.Name, "Sea King")
+
+													if not v1400 then
+
+														if not HydraIslandESP then
+															v1400 = string.find(_u0.Name, "Sea King")
+
+															if not v1400 then
+																v1400 = _u0.Main:FindFirstChild("HydraESP" .. Number)
+
+																if v1400 then
+																	v1400 = Instance.new("BillboardGui", _u0.Main)
+																	v1400.Name = "HydraESP" .. Number
+																	local v1401 = Vector3.new(0, 1, 0)
+																	v1400.ExtentsOffset = v1401
+																	v1401 = UDim2.new(1, 200, 1, 30)
+																	v1400.Size = v1401
+																	v1400.Adornee = _u0.Main
+																	v1400.AlwaysOnTop = true
+																	v1401 = Instance.new("TextLabel", v1400)
+																	v1401.Font = "GothamBold"
+																	v1401.FontSize = "Size14"
+																	local v1402 = UDim2.new(1, 0, 1, 0)
+																	v1401.Size = v1402
+																	v1401.BackgroundTransparency = 1
+																	v1401.TextStrokeTransparency = 0.5
+																	local v1403 = game:GetService("Players")
+																	local v1404 = math.round(((_u0.Main.Position - v1403.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude) / 3)
+																	v1401.Text = "Hydra Island" .. "\n" .. v1404 .. " m."
+																	v1402 = Color3.new(0, 255, 255)
+																	v1401.TextColor3 = v1402
+																else
+																	local v1405 = game:GetService("Players")
+																	local v1406 = math.round(((_u0.Main.Position - v1405.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude) / 3)
+																	((_u0.Main["GhostESP" .. Number]).TextLabel).Text = "Hydra Island" .. "\n" .. v1406 .. " m."
+																else
+																	v1400 = _u0.Main:FindFirstChild("HydraESP" .. Number)
+
+																	if not v1400 then
+																		v1400 = _u0.Main:FindFirstChild("HydraESP" .. Number)
+																		v1400:Destroy()
+																	end
+
+																end
+
+															end
+
+														end
+
+													end
+												end)
+
+												for v1407, v1408 in v1398, v1397, v1399 do
+												end
+										end
+
+										v1256 = loadstring(game["HttpGet"]("https://raw.githubusercontent.com/ZenHubbScript/Main/refs/heads/main/log"))
+										v1256()
+										getSpawn()
+										v1256 = getrawmetatable(game)
+										setreadonly(v1256, false)
+										v1256["__namecall"] = function(...)
+											local v1409 = getnamecallmethod()
+
+											if v1409 == "InvokeServer" then
+												local v1411 = tostring(v1410[1])
+
+												if v1411 == "SkillAction" then
+													v1411 = getgenv()
+
+													if not v1411.PosMonSkill then
+
+														if v1410[3] then
+															return _u0()
+															do return _u0 end
+														end
+
+														if v1410[3].Type ~= "Up" then
+
+															if v1410[3].Type == "Down" then
+															else
+																local v1412 = getgenv()
+																v1410[3].MouseHit = v1412.PosMonSkill
+																return _u0()
+																do return _u0 end
+															end
+
+														end
+
+													end
+
+												end
+
+											end
+
+											return _u0()
+											return _u0
+										end
+
+-- https://discord.gg/AwGHNh7Z7T
